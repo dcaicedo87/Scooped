@@ -4,12 +4,17 @@ from flask_login import UserMixin
 
 
 class User(db.Model, UserMixin):
-    __tablename__ = 'users'
+    __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
+    is_active = db.Column(
+        db.Boolean, default=True, server_default="true", nullable=False
+    )  # potential bug with server_default??
+
+    icecreams = db.relationship("IceCream", back_populates="user")
 
     @property
     def password(self):
@@ -23,8 +28,4 @@ class User(db.Model, UserMixin):
         return check_password_hash(self.password, password)
 
     def to_dict(self):
-        return {
-            'id': self.id,
-            'username': self.username,
-            'email': self.email
-        }
+        return {"id": self.id, "username": self.username, "email": self.email}
