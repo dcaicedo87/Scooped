@@ -15,6 +15,7 @@ class User(db.Model, UserMixin):
     )  # potential bug with server_default??
 
     icecreams = db.relationship("IceCream", back_populates="user")
+    reviews = db.relationship("Review", back_populates="user")
 
     @property
     def password(self):
