@@ -3,7 +3,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
 
 import { getAllIceCreamsThunk } from "../../store/icecream"
-
+import AddIceCreamModal from '../Modal';
 import "./homepage.css"
 
 const HomePage = () => {
@@ -24,6 +24,7 @@ const HomePage = () => {
     return (
         <>
             <h1>IceCreams</h1>
+            <AddIceCreamModal />
             <div>
                 {iceCreamArray.length > 0 && iceCreamArray.map(iceCream => (
                     <div className="iceCream-div">
