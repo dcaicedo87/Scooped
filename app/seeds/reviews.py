@@ -1,4 +1,5 @@
 from app.models import db, Review
+from app.models.user import User
 
 
 def seed_reviews():
@@ -33,6 +34,18 @@ def seed_reviews():
     db.session.add(review_2)
     db.session.add(review_3)
     db.session.add(review_4)
+
+    user_1 = User.query.filter_by(username="Demo").first()
+    review_1.user_like.append(user_1)
+
+    user_2 = User.query.filter_by(username="marnie").first()
+    review_1.user_like.append(user_2)
+
+    user_3 = User.query.filter_by(username="bobbie").first()
+    review_1.user_like.append(user_3)
+
+    user_4 = User.query.filter_by(username="Daniel").first()
+    review_1.user_like.append(user_4)
 
     db.session.commit()
 

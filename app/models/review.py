@@ -1,5 +1,5 @@
 from .db import db
-
+from .review_like import review_like
 
 class Review(db.Model):
     __tablename__ = "reviews"
@@ -12,6 +12,8 @@ class Review(db.Model):
 
     user = db.relationship("User", back_populates='reviews')
     icecream = db.relationship("IceCream", back_populates='reviews')
+
+    user_like = db.relationship("User", secondary=review_like, back_populates="review_like")
 
     def to_dict(self):
         return {
