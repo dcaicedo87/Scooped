@@ -26,9 +26,8 @@ const initialState = {}
 const iceCreamReducer = (state = initialState, action) => {
     const newState = { ...state }
     switch (action.type) {
-        case GET_ALL_ICECREAMS: {
+        case GET_ALL_ICECREAMS:
             return action.iceCreams.iceCreams
-        }
 
         default: return state;
     }

@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { getAllIceCreamsThunk } from "../../store/icecream"
 
+import "./homepage.css"
+
 const HomePage = () => {
 
     const dispatch = useDispatch()
@@ -23,7 +25,12 @@ const HomePage = () => {
         <>
             <h1>IceCreams</h1>
             <div>
-                {thisIceCream.flavor_name}
+                {iceCreamArray.length > 0 && iceCreamArray.map(iceCream => (
+                    <div className="iceCream-div">
+                        <img src={iceCream.icecream_pic_url} className="iceCream-pic"/>
+                        <li>{iceCream.flavor_name}</li>
+                    </div>
+                ))}
             </div>
         </>
     )
