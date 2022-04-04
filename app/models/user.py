@@ -1,4 +1,5 @@
 from .db import db
+from .review_like import review_like
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
@@ -16,6 +17,8 @@ class User(db.Model, UserMixin):
 
     icecreams = db.relationship("IceCream", back_populates="user")
     reviews = db.relationship("Review", back_populates="user")
+
+    review_like = db.relationship("Review", secondary=review_like, back_populates="user_like")
 
     @property
     def password(self):
