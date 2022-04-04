@@ -13,6 +13,7 @@ const getAllIceCreams = (iceCreams) => {
 export const getAllIceCreamsThunk = () => async (dispatch) => {
 
     const res = await fetch(`/api/iceCreams/all`);
+    console.log("GETING HERE")
     const data = await res.json()
     dispatch(getAllIceCreams(data))
 
@@ -23,15 +24,13 @@ export const getAllIceCreamsThunk = () => async (dispatch) => {
 const initialState = {}
 
 const iceCreamReducer = (state = initialState, action) => {
-    let newState = {}
+    const newState = { ...state }
     switch (action.type) {
         case GET_ALL_ICECREAMS: {
-            newState = {...state}
-            action.iceCreams.forEach(iceCream => {
-                newState[iceCream.id] = iceCream
-            });
-            return newState;
+            return action.iceCreams.iceCreams
         }
+
+        default: return state;
     }
 }
 

@@ -9,8 +9,10 @@ const HomePage = () => {
     const dispatch = useDispatch()
 
     const sessionUser = useSelector(state => state.session.user);
+    const iceCreamArray = useSelector(state => state.iceCream)
+    console.log(iceCreamArray)
+    const thisIceCream = iceCreamArray[0]
 
-    // const iceCreamList = useSelector(state => state.)
 
     useEffect(() => {
         dispatch(getAllIceCreamsThunk())
@@ -18,7 +20,12 @@ const HomePage = () => {
 
 
     return (
-        <h1>IceCream</h1>
+        <>
+            <h1>IceCreams</h1>
+            <div>
+                {thisIceCream.flavor_name}
+            </div>
+        </>
     )
 }
 
