@@ -34,10 +34,130 @@ def seed_icecreams():
         user_id=1,
     )
 
+    icecream5 = IceCream(
+        flavor_name="Brown Sugar Blondie Ice Cream",
+        category="Dairy",
+        icecream_pic_url="https://www.benandjerry.com.au/files/live/sites/systemsite/files/flavors/products/aa/mini-cups/open-closed-minis/brown-sugar-blondie-landing-open.png",
+        description="Buttery Brown Sugar Ice Cream with Blonde Brownies and Butterscotch Toffee Flakes",
+        user_id=5,
+    )
+
+    icecream6 = IceCream(
+        flavor_name="Crema",
+        category="Gelato",
+        icecream_pic_url="https://assets.wsimgs.com/wsimgs/rk/images/dp/recipe/202210/0037/img18l.jpg",
+        description="Crema, also known as Custard, is the most popular flavors in Italian gelateries.",
+        user_id=6,
+    )
+
+    icecream7 = IceCream(
+        flavor_name="Milk & Cookies",
+        category="Dairy",
+        icecream_pic_url="https://www.benjerry.com/files/live/sites/systemsite/files/flavors/products/us/pint/milk-cookies-non-dairy-landing.png",
+        description="Vanilla Non-Dairy Frozen Dessert with Chocolate Chip Cookies, Chocolate Sandwich Cookies & Chocolate Cookie Swirls",
+        user_id=7,
+    )
+
+    icecream8 = IceCream(
+        flavor_name="Noce Di Cocco",
+        category="Gelato",
+        icecream_pic_url="https://lacuocaignorante.altervista.org/wp-content/uploads/2018/08/gelato-al-cocco-320x180.jpg",
+        description="Made with fresh cream, milk, sugar and vanilla, and of course, coconuts. It's the perfect frozen treat.",
+        user_id=8,
+    )
+
+    icecream9 = IceCream(
+        flavor_name="Bananas Foster​",
+        category="Vegan",
+        icecream_pic_url="https://simpleveganblog.com/wp-content/uploads/2021/07/banana-ice-cream-2.jpg",
+        description="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi accusamus rerum molestias aliquid, laboriosam, explicabo magni repellat facere sequi blanditiis unde similique tenetur ab esse minus quam ratione veritatis quas earum nisi excepturi? Dolorem sapiente similique aliquid nisi voluptatibus, quas recusandae tenetur obcaecati, veritatis quo doloribus, blanditiis debitis natus! Ut?",
+        user_id=9,
+    )
+
+    icecream10 = IceCream(
+        flavor_name="Non-Dairy Mint Chocochunk",
+        category="Dairy",
+        icecream_pic_url="https://www.benjerry.com/files/live/sites/systemsite/files/flavors/products/us/pint/bananas-foster-core-sunflower-detail.png",
+        description="Banana & Cinnamon Non-Dairy Frozen Dessert with Almond Toffee Pieces & a Salted Caramel Core",
+        user_id=10,
+    )
+
+    icecream11 = IceCream(
+        flavor_name="P.B. & Cookies",
+        category="Dairy",
+        icecream_pic_url="https://www.hersheyicecream.com/products/images/premium-gold/peanut-butter-cookies-and-cream-scoop.gif",
+        description="Vanilla Non-Dairy Frozen Dessert with Chocolate Sandwich Cookies & Crunchy Peanut Butter Swirls",
+        user_id=1,
+    )
+
+    icecream12 = IceCream(
+        flavor_name="Gelato Alla Nocciola",
+        category="Gelato",
+        icecream_pic_url="https://assets.tmecosys.cn/image/upload/t_web600x528/img/recipe/vimdb/123799_978-0-5404-5404.jpg",
+        description="A staple at every Italian gelateria, nocciola is a classic hazelnut gelato.",
+        user_id=2,
+    )
+
+    icecream13 = IceCream(
+        flavor_name="Birthday Batter",
+        category="Dairy",
+        icecream_pic_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSd4RUde2U6RQ3f7496EnO5kCXnf7-nxsIfOQ&usqp=CAU",
+        description="The ultimate cake batter ice cream that’s exploding with sprinkles!",
+        user_id=3,
+    )
+
+    icecream14 = IceCream(
+        flavor_name="The Akutaq",
+        category="Dairy",
+        icecream_pic_url="https://insanelygoodrecipes.com/wp-content/uploads/2020/07/Bowl-Of-Strawberry-Ice-Cream.webp",
+        description="The Akutaq (a-goo-duk) or Eskimo ice cream is an Alaskan flavor that’s made of whipped fat and berries, such as blueberries, cloudberries, and cranberries. ",
+        user_id=4,
+    )
+
+    icecream15 = IceCream(
+        flavor_name="Kinda Baked",
+        category="Dairy",
+        icecream_pic_url="https://images.squarespace-cdn.com/content/v1/60874d1bdb18651f658460e2/1624988026674-8NK7A60I7VPUE1QA6LYZ/CC_0421_TONED_HR_053.jpg?format=750w",
+        description="We start with half vanilla and half chocolate oat milk ice creams, then add generous heaps of house made chocolate chip cookie dough and chunks of fudge brownies. It's the best of both worlds, all in one scoop.",
+        user_id=5,
+    )
+
+    icecream16 = IceCream(
+        flavor_name="Lychee Raspberry Daiquiri",
+        category="Dairy",
+        icecream_pic_url="https://images.squarespace-cdn.com/content/v1/60874d1bdb18651f658460e2/1624988810968-M45TBXUPSC5XLKHW21IB/CC_0421_TONED_HR_026.jpg?format=750w",
+        description="We blend juicy lychees with coconut milk to make a sherbet that is both refreshing and creamy.",
+        user_id=6,
+    )
+
+    icecream17 = IceCream(
+        flavor_name="Lychee Raspberry Daiquiri",
+        category="Dairy",
+        icecream_pic_url="https://images.squarespace-cdn.com/content/v1/60874d1bdb18651f658460e2/1624988810968-M45TBXUPSC5XLKHW21IB/CC_0421_TONED_HR_026.jpg?format=750w",
+        description="We blend juicy lychees with coconut milk to make a sherbet that is both refreshing and creamy.",
+        user_id=6,
+    )
+
     db.session.add(funky_monkey)
     db.session.add(passion_fruit)
     db.session.add(fragola)
     db.session.add(banana_dream)
+    db.session.add_all(
+        [
+            icecream5,
+            icecream6,
+            icecream7,
+            icecream8,
+            icecream9,
+            icecream10,
+            icecream11,
+            icecream12,
+            icecream13,
+            icecream14,
+            icecream15,
+            icecream16,
+        ]
+    )
 
     db.session.commit()
 
