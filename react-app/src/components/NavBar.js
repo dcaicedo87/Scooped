@@ -10,7 +10,7 @@ const NavBar = () => {
     <div className='navbar-container'>
       <div className='navbar-img-container'>
         <Link to='/'>
-          <img src={scoopedLogo} width='80px'></img>
+          <img src={scoopedLogo} alt="" width='80px'></img>
         </Link>
       </div>
       <nav>
