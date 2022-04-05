@@ -9,14 +9,12 @@ iceCream_routes = Blueprint('iceCreams', __name__)
 @iceCream_routes.route('/all', methods=["GET"])
 def getIceCreams():
     iceCreams = IceCream.query.all()
-    print ({'users': [ice_cream.to_dict() for ice_cream in iceCreams]})
     return {'iceCreams': [ice_cream.to_dict() for ice_cream in iceCreams]}
 
-## working on this
+
 @iceCream_routes.route('/add', methods=['POST'])
 def add_ice_cream():
     form = NewIceCreamForm()
-    print('AAAAAAAAAAAAAAAAAAA')
     new_ice = IceCream(
         flavor_name=form.data['flavor_name'],
         category=form.data['category'],
@@ -28,7 +26,6 @@ def add_ice_cream():
     db.session.commit()
     return new_ice.to_dict()
 
-# comment = Comment(
-#             user_name=form.data['user_name'],
-#             body=form.data['body'],
-#         )
+
+##need to make put route with url /edit.
+##everything else is all set with the update for iceCreams

@@ -20,4 +20,5 @@ class IceCream(db.Model):
             "category": self.category,
             "icecream_pic_url": self.icecream_pic_url,
             "description": self.description,
+            "user_id": self.user_id,
         }

@@ -3,16 +3,20 @@ import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
 
 import { getAllIceCreamsThunk } from "../../store/icecream"
-import AddIceCreamModal from '../Modal';
+
+import AddIceCreamModal from '../ModalAdd';
+import EditIceCreamModal from '../ModalEdit';
+
 import "./homepage.css"
 
 const HomePage = () => {
 
     const dispatch = useDispatch()
 
+    const [editButton, setEditButton] = useState(false)
+
     const sessionUser = useSelector(state => state.session.user);
     const iceCreamArray = useSelector(state => state.iceCream)
-    const thisIceCream = iceCreamArray[0]
 
 
     useEffect(() => {
@@ -29,6 +33,9 @@ const HomePage = () => {
                     <div className="iceCream-div">
                         <img src={iceCream.icecream_pic_url} className="iceCream-pic"/>
                         <li>{iceCream.flavor_name}</li>
+                        {iceCream.user_id == sessionUser.id &&
+                            <EditIceCreamModal iceCream={iceCream}/>
+                        }
                     </div>
                 ))}
             </div>
