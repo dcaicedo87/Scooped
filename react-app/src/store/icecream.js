@@ -68,7 +68,9 @@ export const deleteIceCreamThunk = (id) => async (dispatch) => {
         method: "DELETE"
     })
     if (res.ok) {
-        const { id } = await res.json();
+        const data = await res.json();
+        // console.log("ID", id)
+        // console.log("DATA", data)
         dispatch(deleteIceCream(id));
         return id;
     }
@@ -79,10 +81,14 @@ export const deleteIceCreamThunk = (id) => async (dispatch) => {
 const initialState = {}
 
 const iceCreamReducer = (state = initialState, action) => {
-    const newState = { ...state }
+    let newState = { ...state }
     switch (action.type) {
         case GET_ALL_ICECREAMS:
-            return action.iceCreams.iceCreams;
+            newState = {}
+            action.iceCreams.iceCreams.forEach(iceCream => (
+                newState[iceCream.id] = iceCream
+            ));
+            return newState;
 
         case ADD_ICECREAM:
             newState[action.iceCream.id] = action.iceCream
@@ -93,6 +99,8 @@ const iceCreamReducer = (state = initialState, action) => {
             return newState
 
         case DELETE_ICECREAM:
+            console.log("ACTION", action)
+            console.log("NEW STATE", newState)
             delete newState[action.id]
             return newState
 
