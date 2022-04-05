@@ -17,7 +17,7 @@ const HomePage = () => {
     // const [editButton, setEditButton] = useState(false)
 
     const sessionUser = useSelector(state => state.session.user);
-    const iceCreamArray = useSelector(state => state.iceCream)
+    const iceCreamArray = useSelector(state => Object.values(state.iceCream).reverse())
 
 
     useEffect(() => {
