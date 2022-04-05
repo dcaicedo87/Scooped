@@ -36,8 +36,10 @@ const HomePage = () => {
             <div>
                 {iceCreamArray.length > 0 && iceCreamArray.map(iceCream => (
                     <div className="iceCream-div">
-                        <img src={iceCream.icecream_pic_url} className="iceCream-pic" />
-                        <li>{iceCream.flavor_name}</li>
+                        <NavLink to={`/iceCream/${iceCream.id}`}>
+                            <img src={iceCream.icecream_pic_url} className="iceCream-pic" />
+                            <li>{iceCream.flavor_name}</li>
+                        </NavLink>
                         {iceCream.user_id == sessionUser.id &&
                             <div>
                                 <EditIceCreamModal iceCream={iceCream} />
