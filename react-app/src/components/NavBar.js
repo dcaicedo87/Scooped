@@ -4,8 +4,12 @@ import { Link, NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import './NavBar.css'
 import scoopedLogo from './img/scooped_logo.png'
+import { useSelector } from 'react-redux';
 
 const NavBar = () => {
+  const sessionUser = useSelector((state) => state.session.user);
+  const userId = sessionUser?.id;
+
   return (
     <div className='navbar-container'>
       <div className='navbar-img-container'>
@@ -31,8 +35,8 @@ const NavBar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to='/users' exact={true} activeClassName='active' style={{ textDecoration: 'none' }}>
-              Users
+            <NavLink to={`/users/${userId}`} exact={true} activeClassName='active' style={{ textDecoration: 'none' }}>
+              My Profile
             </NavLink>
           </li>
           <li>
