@@ -1,6 +1,5 @@
-
-
 const GET_ALL_ICECREAMS = "icecreams/all"
+const ADD_ICECREAM = "icecream/add";
 
 
 const getAllIceCreams = (iceCreams) => {
@@ -10,16 +9,37 @@ const getAllIceCreams = (iceCreams) => {
     }
 }
 
+const addIceCream = (iceCream) => {
+    return {
+        type: ADD_ICECREAM,
+        iceCream
+    }
+}
+
 export const getAllIceCreamsThunk = () => async (dispatch) => {
 
     const res = await fetch(`/api/iceCreams/all`);
-    console.log("GETING HERE")
     const data = await res.json()
     dispatch(getAllIceCreams(data))
-
     return data
 }
 
+export const addIceCreamThunk = (iceCream) => async (dispatch) => {
+    const { flavor_name, category, icecream_pic_url, description, user_id } = iceCream;
+    const res = await fetch(`/api/iceCreams/add`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            flavor_name,
+            category,
+            icecream_pic_url,
+            description,
+            user_id
+        })
+    });
+    const data = await res.json();
+    dispatch(addIceCream(data));
+}
 
 const initialState = {}
 
@@ -27,9 +47,15 @@ const iceCreamReducer = (state = initialState, action) => {
     const newState = { ...state }
     switch (action.type) {
         case GET_ALL_ICECREAMS:
-            return action.iceCreams.iceCreams
+            return action.iceCreams.iceCreams;
+
+        case ADD_ICECREAM:
+            newState[action.iceCream.id] = action.iceCream
+            return newState
+
 
         default: return state;
+
     }
 }
 
