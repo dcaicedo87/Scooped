@@ -41,7 +41,7 @@ def edit_ice_cream():
     return iceCream.to_dict()
 
 
-@iceCream_routes.route('/delete/<int:id>')
+@iceCream_routes.route('/delete/<int:id>', methods=['DELETE'])
 def delete_ice_cream(id):
     deleted_iceCream = IceCream.query.filter(IceCream.id == id).first()
     IceCream.query.filter(IceCream.id == id).delete()

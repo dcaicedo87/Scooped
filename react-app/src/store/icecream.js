@@ -67,9 +67,12 @@ export const deleteIceCreamThunk = (id) => async (dispatch) => {
     const res = await fetch(`api/iceCreams/delete/${id}`, {
         method: "DELETE"
     })
-    //const data = await res.json()
+    if (res.ok) {
+        const { id } = await res.json();
+        dispatch(deleteIceCream(id));
+        return id;
+    }
 
-    dispatch(deleteIceCream(id))
 
 }
 
