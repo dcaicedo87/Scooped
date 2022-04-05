@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+// import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
 
 import { getAllIceCreamsThunk } from "../../store/icecream"
@@ -31,9 +31,9 @@ const HomePage = () => {
             <div>
                 {iceCreamArray.length > 0 && iceCreamArray.map(iceCream => (
                     <div className="iceCream-div">
-                        <img src={iceCream.icecream_pic_url} className="iceCream-pic"/>
+                        <img src={iceCream.icecream_pic_url} alt='' className="iceCream-pic"/>
                         <li>{iceCream.flavor_name}</li>
-                        {iceCream.user_id == sessionUser.id &&
+                        {iceCream.user_id === sessionUser.id &&
                             <EditIceCreamModal iceCream={iceCream}/>
                         }
                     </div>
