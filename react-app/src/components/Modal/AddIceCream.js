@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addIceCreamThunk } from "../../store/icecream";
+import { useHistory } from 'react-router-dom';
 
 
 function AddIceCreamForm() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
+
+    const history = useHistory();
 
 
     const [name, setName] = useState("");
@@ -23,6 +26,9 @@ function AddIceCreamForm() {
             user_id: sessionUser.id
         }
         dispatch(addIceCreamThunk(iceCream))
+        window.location.reload(false)
+        history.push('/');
+
     }
 
 
