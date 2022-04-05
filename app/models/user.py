@@ -15,9 +15,11 @@ class User(db.Model, UserMixin):
         db.Boolean, default=True, server_default="true", nullable=False
     )  # potential bug with server_default??
 
+    # one(user) to many(icecreams)
     icecreams = db.relationship("IceCream", back_populates="user")
+    # one(user) to many(reviews)
     reviews = db.relationship("Review", back_populates="user")
-
+    # many(reviews) to many(users), refer to review_like
     review_likes = db.relationship("Review", secondary=review_like, back_populates="user_likes")
 
     @property

@@ -12,8 +12,11 @@ class IceCream(db.Model):
     description = db.Column(db.Text, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
+    # many(icecreams) to one(user)
     user = db.relationship("User", back_populates="icecreams")
+    # one(icecream) to many(reviews)
     reviews = db.relationship("Review", back_populates="icecream")
+    # many(icecreams) to many(shops), refer to icecream_join_shop
     shops = db.relationship("Shop", secondary=icecream_join_shop, back_populates="icecreams")
 
     def to_dict(self):

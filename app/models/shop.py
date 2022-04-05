@@ -14,6 +14,7 @@ class Shop(db.Model):
     postal_code = db.Column(db.Integer, nullable=False)
     description = db.Column(db.Text, nullable=False)
 
+    # many(shops) to many(icecreams), refer to icecream_join_shop
     icecreams = db.relationship("IceCream", secondary=icecream_join_shop, back_populates="shops")
 
     def to_dict(self):

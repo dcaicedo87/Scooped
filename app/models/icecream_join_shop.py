@@ -1,5 +1,6 @@
 from .db import db
 
+# joint table for icecream <=> shop
 icecream_join_shop = db.Table(
     "icecream_join_shop",
     db.Model.metadata,

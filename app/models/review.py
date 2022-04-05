@@ -11,9 +11,11 @@ class Review(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     ice_cream_id = db.Column(db.Integer, db.ForeignKey("icecreams.id"), nullable=False)
 
+    # many(reviews) to one(user)
     user = db.relationship("User", back_populates="reviews")
+    # many(reviews) to one(icecream)
     icecream = db.relationship("IceCream", back_populates="reviews")
-
+    # many(reviews) to many(users), refer to review_like
     user_likes = db.relationship("User", secondary=review_like, back_populates="review_likes")
 
     def to_dict(self):
