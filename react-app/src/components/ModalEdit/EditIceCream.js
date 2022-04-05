@@ -73,7 +73,7 @@ function EditIceCreamForm({iceCream}) {
                     onChange={e => setDescription(e.target.value)}
                     required />
             </label>
-            <button type="submit">Add IceCream</button>
+            <button type="submit">Submit</button>
         </form>
     )
 }

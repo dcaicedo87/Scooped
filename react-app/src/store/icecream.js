@@ -44,12 +44,13 @@ export const addIceCreamThunk = (iceCream) => async (dispatch) => {
 }
 
 export const editIceCreamThunk = (iceCream) => async (dispatch) => {
-
+    console.log('INSIDE OF THUNK')
     const res = await fetch(`/api/iceCreams/edit`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(iceCream),
     })
+    console.log(res)
     const data = await res.json()
     dispatch(editIceCream(data))
 }
