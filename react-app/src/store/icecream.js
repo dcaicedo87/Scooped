@@ -25,18 +25,12 @@ export const getAllIceCreamsThunk = () => async (dispatch) => {
 }
 
 export const addIceCreamThunk = (iceCream) => async (dispatch) => {
-    const { flavor_name, category, icecream_pic_url, description, user_id } = iceCream;
     const res = await fetch(`/api/iceCreams/add`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            flavor_name,
-            category,
-            icecream_pic_url,
-            description,
-            user_id
-        })
+        body: JSON.stringify(iceCream)
     });
+    console.log(res)
     const data = await res.json();
     dispatch(addIceCream(data));
 }

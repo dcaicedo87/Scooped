@@ -12,7 +12,6 @@ const HomePage = () => {
 
     const sessionUser = useSelector(state => state.session.user);
     const iceCreamArray = useSelector(state => state.iceCream)
-    console.log(iceCreamArray)
     const thisIceCream = iceCreamArray[0]
 
 

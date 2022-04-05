@@ -1,35 +1,28 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addIceCreamThunk } from "../../store/icecream";
-import { useHistory } from 'react-router-dom';
 
 
 function AddIceCreamForm() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
-    const history = useHistory();
-
 
     const [name, setName] = useState("");
-    const [category, setCategory] = useState("");
+    const [category, setCategory] = useState("Dairy");
     const [iceCreamUrl, setIceCreamUrl] = useState("");
     const [description, setDescription] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(addIceCreamThunk({
+        let iceCream = {
             flavor_name: name,
             category,
             icecream_pic_url: iceCreamUrl,
             description,
             user_id: sessionUser.id
-        }))
-            .catch(async (res) => {
-                return
-            })
-        history.push('/');
-
+        }
+        dispatch(addIceCreamThunk(iceCream))
     }
 
 
@@ -44,7 +37,7 @@ function AddIceCreamForm() {
                     required />
             </label>
             <label>
-                category
+                Category
                 <select
                     value={category}
                     onChange={e => setCategory(e.target.value)}
@@ -53,7 +46,7 @@ function AddIceCreamForm() {
                     <option value="dairy">Dairy</option>
                     <option value="vegan">Vegan</option>
                     <option value="gelato">Gelato</option>
-                    <option value="super-market">Super Market</option>
+                    <option value="super-market">SuperMarket</option>
                 </select>
             </label>
             <label>
@@ -72,6 +65,7 @@ function AddIceCreamForm() {
                     onChange={e => setDescription(e.target.value)}
                     required />
             </label>
+            <button type="submit">Add IceCream</button>
         </form>
     )
 }
