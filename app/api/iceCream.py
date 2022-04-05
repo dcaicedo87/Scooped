@@ -27,8 +27,6 @@ def add_ice_cream():
     return new_ice.to_dict()
 
 
-##need to make put route with url /edit.
-##everything else is all set with the update for iceCreams
 @iceCream_routes.route('/edit', methods=['PUT'])
 def edit_ice_cream():
     form = NewIceCreamForm()
@@ -41,3 +39,13 @@ def edit_ice_cream():
     db.session.add(iceCream)
     db.session.commit()
     return iceCream.to_dict()
+
+
+@iceCream_routes.route('/delete/<int:id>', methods=['DELETE'])
+def delete_ice_cream(id):
+    deleted_iceCream = IceCream.query.filter(IceCream.id == id).first()
+    IceCream.query.filter(IceCream.id == id).delete()
+    db.session.commit()
+    return {
+        'deleted_iceCream': deleted_iceCream.to_dict()
+    }
