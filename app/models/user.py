@@ -18,7 +18,7 @@ class User(db.Model, UserMixin):
     icecreams = db.relationship("IceCream", back_populates="user")
     reviews = db.relationship("Review", back_populates="user")
 
-    review_like = db.relationship("Review", secondary=review_like, back_populates="user_like")
+    review_likes = db.relationship("Review", secondary=review_like, back_populates="user_likes")
 
     @property
     def password(self):
