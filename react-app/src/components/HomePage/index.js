@@ -13,7 +13,7 @@ const HomePage = () => {
 
     const dispatch = useDispatch()
 
-    const [editButton, setEditButton] = useState(false)
+    // const [editButton, setEditButton] = useState(false)
 
     const sessionUser = useSelector(state => state.session.user);
     const iceCreamArray = useSelector(state => state.iceCream)
