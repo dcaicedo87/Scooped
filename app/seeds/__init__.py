@@ -14,8 +14,8 @@ seed_commands = AppGroup("seed")
 def seed():
     seed_users()
     seed_icecreams()
-    seed_reviews()
     seed_shops()
+    seed_reviews()
     # Add other seed functions here
 
 
@@ -24,6 +24,6 @@ def seed():
 def undo():
     undo_users()
     undo_icecreams()
-    undo_reviews()
     undo_shops()
+    undo_reviews()
     # Add other undo functions here

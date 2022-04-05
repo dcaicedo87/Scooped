@@ -1,5 +1,6 @@
 from .db import db
 
+# joint table for like(users <=> reviews)
 review_like = db.Table(
     "review_like",
     db.Model.metadata,
