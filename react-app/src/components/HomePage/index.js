@@ -30,26 +30,32 @@ const HomePage = () => {
 
 
     return (
-        <>
-            <h1>IceCreams</h1>
-            <AddIceCreamModal />
-            <div>
+        <div className='homepage-main'>
+            <div className='upper-content'>
+                <h1>IceCreams</h1>
+                <AddIceCreamModal />
+            </div>
+            <div className='main-content'>
                 {iceCreamArray.length > 0 && iceCreamArray.map(iceCream => (
-                    <div className="iceCream-div">
-                        <NavLink to={`/iceCream/${iceCream.id}`}>
-                            <img src={iceCream.icecream_pic_url} className="iceCream-pic" />
-                            <li>{iceCream.flavor_name}</li>
-                        </NavLink>
-                        {iceCream.user_id == sessionUser.id &&
-                            <div>
-                                <EditIceCreamModal iceCream={iceCream} />
-                                <button onClick={() => deleteIceCream(iceCream.id)}>Delete IceCream</button>
+                    <NavLink to={`/iceCream/${iceCream.id}`} style={{ textDecoration: 'none', color: 'black' }} >
+                        <div className="iceCream-div">
+                            <div className='image-container'>
+                                <img src={iceCream.icecream_pic_url} className="iceCream-pic" />
                             </div>
-                        }
-                    </div>
+                            <div className='info-container'>
+                                <li>{iceCream.flavor_name}</li>
+                            {iceCream.user_id == sessionUser.id &&
+                                <div className='little-button'>
+                                    <EditIceCreamModal iceCream={iceCream} />
+                                    <button className='delete-button' onClick={() => deleteIceCream(iceCream.id)}>Delete</button>
+                                </div>
+                            }
+                            </div>
+                        </div>
+                    </NavLink>
                 ))}
             </div>
-        </>
+        </div>
     )
 }
 

@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import EditIceCreamForm from './EditIceCream';
 
+import "../HomePage/homepage.css"
 
 function EditIceCreamModal({iceCream}) {
     const [showModal, setShowModal] = useState(false);
 
     return (
       <>
-        <button onClick={() => setShowModal(true)}>Edit iceCream</button>
+        <button className='edit-button' onClick={() => setShowModal(true)}>Edit</button>
         {showModal && (
           <Modal onClose={() => setShowModal(false)}>
             <EditIceCreamForm iceCream={iceCream}/>
