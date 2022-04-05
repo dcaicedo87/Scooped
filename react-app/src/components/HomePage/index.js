@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
 
-import { getAllIceCreamsThunk } from "../../store/icecream"
+import { getAllIceCreamsThunk, deleteIceCreamThunk } from "../../store/icecream"
 
 import AddIceCreamModal from '../ModalAdd';
 import EditIceCreamModal from '../ModalEdit';
@@ -18,6 +18,11 @@ const HomePage = () => {
     const sessionUser = useSelector(state => state.session.user);
     const iceCreamArray = useSelector(state => Object.values(state.iceCream).reverse())
 
+    const deleteIceCream = (id) => {
+        dispatch(deleteIceCreamThunk(id));
+
+    }
+
 
     useEffect(() => {
         dispatch(getAllIceCreamsThunk())
@@ -31,10 +36,13 @@ const HomePage = () => {
             <div>
                 {iceCreamArray.length > 0 && iceCreamArray.map(iceCream => (
                     <div className="iceCream-div">
-                        <img src={iceCream.icecream_pic_url} className="iceCream-pic"/>
+                        <img src={iceCream.icecream_pic_url} className="iceCream-pic" />
                         <li>{iceCream.flavor_name}</li>
                         {iceCream.user_id == sessionUser.id &&
-                            <EditIceCreamModal iceCream={iceCream}/>
+                            <div>
+                                <EditIceCreamModal iceCream={iceCream} />
+                                <button onClick={() => deleteIceCream(iceCream.id)}>Delete IceCream</button>
+                            </div>
                         }
                     </div>
                 ))}

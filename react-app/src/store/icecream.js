@@ -1,6 +1,7 @@
 const GET_ALL_ICECREAMS = "icecreams/all"
 const ADD_ICECREAM = "icecream/add";
 const EDIT_ICECREAM = "icecream/edit"
+const DELETE_ICECREAM = "icecream/delete";
 
 
 const getAllIceCreams = (iceCreams) => {
@@ -21,6 +22,13 @@ const editIceCream = (iceCream) => {
     return {
         type: EDIT_ICECREAM,
         iceCream
+    }
+}
+
+const deleteIceCream = (id) => {
+    return {
+        type: DELETE_ICECREAM,
+        id
     }
 }
 
@@ -50,9 +58,19 @@ export const editIceCreamThunk = (iceCream) => async (dispatch) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(iceCream),
     })
-    console.log(res)
+
     const data = await res.json()
     dispatch(editIceCream(data))
+}
+
+export const deleteIceCreamThunk = (id) => async (dispatch) => {
+    const res = await fetch(`api/iceCreams/delete/${id}`, {
+        method: "DELETE"
+    })
+    //const data = await res.json()
+
+    dispatch(deleteIceCream(id))
+
 }
 
 const initialState = {}
@@ -71,7 +89,9 @@ const iceCreamReducer = (state = initialState, action) => {
             newState[action.iceCream.id] = action.iceCream
             return newState
 
-
+        case DELETE_ICECREAM:
+            delete newState[action.id]
+            return newState
 
         default: return state;
 
