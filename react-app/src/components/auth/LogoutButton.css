@@ -1,0 +1,14 @@
+.logout-btn {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    border-radius: 500px;
+    transition-property: background-color, border-color, color, box-shadow, filter;
+    border: 1px solid transparent;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
+    background-color: #f98AAC;
+}
