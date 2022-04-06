@@ -7,15 +7,12 @@ import { getReviewsThunk, deleteReviewThunk } from "../../store/review";
 import { getAllIceCreamsThunk } from "../../store/icecream";
 
 import AddReviewModal from "../ModalReviewPost";
-import EditReviewModal from "../ModalReviewEdit"
+import EditReviewModal from "../ModalReviewEdit";
 
 import "./IceCreamPage.css";
 import { getUsersThunk } from "../../store/user";
 
 const IceCreamPage = () => {
-
-  const sessionUser = useSelector(state => state.session.user);
-
   const dispatch = useDispatch();
 
   let id_of_icecream = useParams().iceCreamId;
@@ -23,7 +20,6 @@ const IceCreamPage = () => {
   const iceCreamObject = useSelector(state => state.iceCream);
   const sessionUser = useSelector(state => state.session.user);
   const currentIceCream = iceCreamObject[id_of_icecream];
-
 
   const reviewList = useSelector(state =>
     Object.values(state.review).reverse()
@@ -35,11 +31,9 @@ const IceCreamPage = () => {
     sum += reviewList[i].rating;
   }
 
-
   const avgRating = sum / reviewList.length;
 
   const userObj = useSelector(state => state.user);
-
 
   useEffect(() => {
     dispatch(getAllIceCreamsThunk());
@@ -91,20 +85,27 @@ const IceCreamPage = () => {
             <h3>Reviews</h3>
             <AddReviewModal />
 
-            {reviewList.length === 0 ? <p>At this moment there are no Reviewsfor this IceCream</p> : null}
+            {reviewList.length === 0 ? (
+              <p>At this moment there are no Reviewsfor this IceCream</p>
+            ) : null}
             {reviewList[0]?.ice_cream_id === currentIceCream?.id &&
-            reviewList?.map((review) => (
-
-              <ul>
-                <li key={review.id + 'O' }>{userObj[review.user_id]?.username}</li>
-                <li key={review.id + 'A'}>{review.content}</li>
-                <li key={review.id + 'B'}>{`${review.rating}/5`}</li>
-                {review.user_id === sessionUser.id &&
-                  <EditReviewModal review={review}/>
-                  <button onClick={() => deleteReview(review.id)}>Delete</button>
-                }
-              </ul>
-            ))}
+              reviewList?.map(review => (
+                <ul>
+                  <li key={review.id + "O"}>
+                    {userObj[review.user_id]?.username}
+                  </li>
+                  <li key={review.id + "A"}>{review.content}</li>
+                  <li key={review.id + "B"}>{`${review.rating}/5`}</li>
+                  {review.user_id === sessionUser.id && (
+                    <>
+                      <EditReviewModal review={review} />
+                      <button onClick={() => deleteReview(review.id)}>
+                        Delete
+                      </button>
+                    </>
+                  )}
+                </ul>
+              ))}
           </div>
         </div>
       )}
