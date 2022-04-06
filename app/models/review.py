@@ -24,4 +24,5 @@ class Review(db.Model):
             "content": self.content,
             "user_id": self.user_id,
             "ice_cream_id": self.ice_cream_id,
+            "rating": self.rating
         }

@@ -18,18 +18,20 @@ const IceCreamPage = () => {
   const currentIceCream = iceCreamObject[iceCreamId]
 
   const reviewList = useSelector(state => Object.values(state.review).reverse())
-  // const reviewList = useSelector(state => (state.review))
 
-  console.log(`REVIEW LIST********`, reviewList)
+  let sum = 0
+
+  for (let i = 0; i < reviewList.length; i++){
+    sum += reviewList[i].rating
+  }
+
+  const avgRating = sum/reviewList.length
 
   const reviewObj = useSelector(state => state.review)
-  console.log(`reviewOBJ%%%%%%%%%%%%%%%`, reviewObj)
 
   const userObj = useSelector(state => state.user)
-  console.log(`userOBJ&&&&&&&&&&&&&&`, userObj)
 
   const userList = Object.values(userObj)
-  console.log(`userLIST^^^^^^^^^^^^`, userList)
 
   useEffect(() => {
     dispatch(getAllIceCreamsThunk());
@@ -63,6 +65,7 @@ const IceCreamPage = () => {
             </div>
           </div>
           <div>
+            <h2>Rating: {`${avgRating}/5`}</h2>
             <h3>Reviews</h3>
             {reviewList.length === 0 ? <p>At this moment there are no Reviewsfor this IceCream</p> : null}
             {
@@ -70,7 +73,7 @@ const IceCreamPage = () => {
               <div>
                 <li key={id + 'O' }>{userObj[user_id].username}</li>
                 <li key={id + 'A'}>{content}</li>
-                <li key={id + 'B'}>{rating}</li>
+                <li key={id + 'B'}>{`${rating}/5`}</li>
               </div>
             ))
             }
