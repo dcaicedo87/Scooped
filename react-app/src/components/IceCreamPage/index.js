@@ -70,7 +70,7 @@ const IceCreamPage = () => {
           </div>
           <div>
             <h2>
-              Rating:{" "}
+              Rating:
               {reviewList[0]?.ice_cream_id === currentIceCream?.id
                 ? `${avgRating}/5`
                 : `0/5`}
