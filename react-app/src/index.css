@@ -1,1 +1,96 @@
 /* TODO Add site wide styles */
+body {
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-align: center;
+}
+
+/* modify this input if necessary */
+input {
+  border: 1px solid #c5d4e9;
+  border-radius: 4px;
+  /* height: 40px; */
+  font-size: 14px;
+  background-color: rgba(245, 248, 255, 0.3);
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid #669efa;
+  background-color: #fff;
+  box-shadow: 0 0 3px 3px rgb(0 94 246 / 10%);
+}
+
+.main {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.container_row {
+  display: flex;
+}
+
+.container_col {
+  display: flex;
+  flex-direction: column;
+}
+
+.big-button {
+  background-color: #8ac0de;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  height: 2.5em;
+  width: 9em;
+  font-size: medium;
+  font-weight: 800;
+}
+
+.big-button:hover {
+  box-shadow: 1px 1px 1px 1px #f6a7c177;
+  cursor: pointer;
+}
+
+.little-button {
+  margin-right: 1em;
+  margin-top: 0.2em;
+  display: grid;
+  grid-template-areas:
+    "a"
+    "b";
+  grid-template-rows: 1fr 1fr;
+}
+
+.edit-button {
+  height: 2.2em;
+  grid-area: a;
+  background-color: #f6a7c1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+.delete-button {
+  height: 2.2em;
+  grid-area: b;
+  background-color: #f6a7c1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.error {
+  color: #f98aac;
+}

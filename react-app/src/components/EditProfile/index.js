@@ -55,34 +55,45 @@ function EditProfile() {
   };
 
   return (
-    <section>
+    <section className="main">
       <div>
         <ul>
           {errors.map(err => (
-            <li key={err}>{err}</li>
+            <li key={err} className="error">
+              {err}
+            </li>
           ))}
         </ul>
       </div>
-      <form onSubmit={handleSubmit}>
-        <input type="hidden" value={userId} />
-        <label>Username</label>
-        <input
-          type="text"
-          placeholder="Username..."
-          value={username}
-          onChange={updateUserName}
-        />
-        <label>Email</label>
-        <input
-          type="email"
-          placeholder="New Email..."
-          value={email}
-          onChange={updateUserEmail}
-        />
-        <button type="Submit">Accept</button>
-        <button type="button" onClick={handleCancel}>
-          Cancel
-        </button>
+      <form onSubmit={handleSubmit} className="container_col profile_edit_form">
+        <div className="container_row profile_edit_inputs">
+          <input type="hidden" value={userId} />
+          <div className="container_col">
+            <label>Username</label>
+            <input
+              type="text"
+              placeholder="Username..."
+              value={username}
+              onChange={updateUserName}
+            />
+          </div>
+
+          <div className="container_col">
+            <label>Email</label>
+            <input
+              type="email"
+              placeholder="New Email..."
+              value={email}
+              onChange={updateUserEmail}
+            />
+          </div>
+        </div>
+        <div className="profile_edit_btns">
+          <button type="Submit">Accept</button>
+          <button type="button" onClick={handleCancel}>
+            Cancel
+          </button>
+        </div>
       </form>
     </section>
   );
