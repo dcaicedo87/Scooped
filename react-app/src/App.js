@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -10,6 +11,8 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./store/session";
 import EditProfile from "./components/EditProfile";
+import IceCreamPage from './components/IceCreamPage';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -49,8 +52,12 @@ function App() {
           <ProtectedRoute path="/" exact={true}>
             <HomePage />
           </ProtectedRoute>
+          <ProtectedRoute path='/iceCream/:iceCreamId' exact={true} >
+            <IceCreamPage />
+          </ProtectedRoute>
         </Switch>
       )}
+
     </BrowserRouter>
   );
 }
