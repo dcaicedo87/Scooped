@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { updateProfile } from "../../store/profile";
@@ -17,11 +17,6 @@ function EditProfile() {
 
   const updateUserName = e => setUsername(e.target.value);
   const updateUserEmail = e => setEmail(e.target.value);
-
-  useEffect(() => {
-    console.log("useEffect username", curUserName === username);
-    console.log("useEffect email", userEmail === email);
-  }, [dispatch, username, email]);
 
   const handleSubmit = async e => {
     e.preventDefault();
