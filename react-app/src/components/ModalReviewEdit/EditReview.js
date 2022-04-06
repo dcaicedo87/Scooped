@@ -2,22 +2,23 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { addReviewThunk } from "../../store/review";
+import { editReviewThunk } from "../../store/review";
 import "../HomePage/homepage.css";
 
-function AddReview() {
+function EditReview({review}) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
 
   const ice_cream_id = useParams().iceCreamId;
 
-  const [content, setContent] = useState("");
-  const [rating, setRating] = useState(0);
-  const [errors, setErrors] = useState([])
+  const [content, setContent] = useState(review.content);
+  const [rating, setRating] = useState(review.rating);
+  const [errors, setErrors] = useState([]);
 
   const handleSubmit = e => {
     e.preventDefault();
-    let review = {
+    let updatedReview = {
+      id: review.id,
       content,
       rating: +rating,
       user_id: sessionUser.id,
@@ -29,7 +30,7 @@ function AddReview() {
 
     const newErrors = [];
 
-    if (review.content.length < 4) {
+    if (updatedReview.content.length < 4) {
       newErrors.push("Content must be 4 characters or more.");
     }
 
@@ -38,17 +39,17 @@ function AddReview() {
       return;
     }
 
-    dispatch(addReviewThunk(review));
+    dispatch(editReviewThunk(updatedReview));
     window.location.reload(false);
   };
 
   return (
     <div>
       <div>
-        <ul className="post-review-errors">
-            {errors.map((err) => (
-              <li key={err}>{err}</li>
-            ))}
+        <ul className="edit-review-errors">
+          {errors.map((err) => (
+            <li key={err}>{err}</li>
+          ))}
         </ul>
       </div>
       <form onSubmit={handleSubmit}>
@@ -76,10 +77,10 @@ function AddReview() {
             <option value="5">5</option>
           </select>
         </label>
-        <button type="submit">Add Review</button>
+        <button type="submit">Confirm</button>
       </form>
     </div>
   );
 }
 
-export default AddReview;
+export default EditReview;

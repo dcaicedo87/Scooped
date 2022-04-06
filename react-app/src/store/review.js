@@ -1,6 +1,8 @@
 const GET_REVIEWS = "reviews/all";
 const ADD_REVIEW = "reviews/add";
+const EDIT_REVIEW = "reviews/edit";
 const DELETE_REVIEW = "review/delete";
+
 
 // action creator Reviews
 const getReviews = reviews => {
@@ -17,12 +19,20 @@ const addReview = review => {
   };
 };
 
+const editReview = review => {
+  return {
+    type: EDIT_REVIEW,
+    review
+  };
+};
+
 const deleteReview = id => {
   return {
     type: DELETE_REVIEW,
     id
   }
 }
+
 
 // thunk for Reviews
 export const getReviewsThunk = iceCreamId => async dispatch => {
@@ -50,6 +60,17 @@ export const addReviewThunk = review => async dispatch => {
     return data;
   }
 };
+
+export const editReviewThunk = review => async (dispatch) => {
+  const res = await fetch(`/api/reviews/edit`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(review),
+  });
+  console.log("AFTER EDIT THUNK")
+  const updateReview = await res.json();
+  dispatch(editReview(updateReview))
+}
 
 // delete review thunk
 export const deleteReviewThunk = id => async dispatch => {
@@ -79,7 +100,11 @@ const reviewReducer = (state = initialState, action) => {
     case ADD_REVIEW:
       newState[action.review.id] = action.review;
       return newState;
-
+      
+    case EDIT_REVIEW:
+      newState[action.review.id] = action.review;
+      return newState;
+      
     case DELETE_REVIEW:
       delete newState[action.id];
       return newState;
