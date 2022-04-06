@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getReviewsThunk } from "../../store/review";
+import { getReviewsThunk, deleteReviewThunk } from "../../store/review";
 
 import { getAllIceCreamsThunk } from "../../store/icecream";
 
@@ -21,9 +21,9 @@ const IceCreamPage = () => {
   let id_of_icecream = useParams().iceCreamId;
 
   const iceCreamObject = useSelector(state => state.iceCream);
+  const sessionUser = useSelector(state => state.session.user);
   const currentIceCream = iceCreamObject[id_of_icecream];
 
-  console.log(currentIceCream, "111111111111111111111111");
 
   const reviewList = useSelector(state =>
     Object.values(state.review).reverse()
@@ -52,6 +52,10 @@ const IceCreamPage = () => {
   useEffect(() => {
     dispatch(getUsersThunk());
   }, [dispatch]);
+
+  const deleteReview = id => {
+    dispatch(deleteReviewThunk(id));
+  };
 
   return (
     <div className="body-iceCreamPage">
@@ -86,18 +90,20 @@ const IceCreamPage = () => {
             </h2>
             <h3>Reviews</h3>
             <AddReviewModal />
+
             {reviewList.length === 0 ? <p>At this moment there are no Reviewsfor this IceCream</p> : null}
-            {
+            {reviewList[0]?.ice_cream_id === currentIceCream?.id &&
             reviewList?.map((review) => (
 
-              <div>
+              <ul>
                 <li key={review.id + 'O' }>{userObj[review.user_id]?.username}</li>
                 <li key={review.id + 'A'}>{review.content}</li>
                 <li key={review.id + 'B'}>{`${review.rating}/5`}</li>
                 {review.user_id === sessionUser.id &&
                   <EditReviewModal review={review}/>
+                  <button onClick={() => deleteReview(review.id)}>Delete</button>
                 }
-              </div>
+              </ul>
             ))}
           </div>
         </div>
