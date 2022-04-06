@@ -29,8 +29,8 @@ def postReview(iceCreamId):
 
 @review_routes.route("/delete/<int:reviewId>", methods=["DELETE"])
 def delete_review(reviewId):
-    deleted_review =Review.query.get(reviewId)
-    Review.query.get(reviewId).delete()
+    deleted_review =Review.query.filter(Review.id == reviewId).first()
+    Review.query.filter(Review.id == reviewId).delete()
     db.session.commit()
     return {
         'deleted_review':deleted_review.to_dict()

@@ -44,9 +44,9 @@ const IceCreamPage = () => {
     dispatch(getUsersThunk());
   }, [dispatch]);
 
-  // const deleteReview = id => {
-  //   dispatch(deleteReviewThunk(id));
-  // };
+  const deleteReview = id => {
+    dispatch(deleteReviewThunk(id));
+  };
 
   return (
     <div className="body-iceCreamPage">
@@ -90,7 +90,7 @@ const IceCreamPage = () => {
                   <li key={review.id + "O"}>{userObj[review.user_id]?.username}</li>
                   <li key={review.id + "A"}>{review.content}</li>
                   <li key={review.id + "B"}>{`${review.rating}/5`}</li>
-                  {sessionUser.id === review.user_id ? <button onClick={() => dispatch(deleteReviewThunk(review.id))}>Delete</button> : null}
+                  {sessionUser.id === review.user_id ? <button onClick={() => deleteReview(review.id)}>Delete</button> : null}
                 </ul>
               ))}
           </div>
