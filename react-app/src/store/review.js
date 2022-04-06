@@ -16,7 +16,7 @@ export const getReviewsThunk = (iceCreamId) => async (dispatch) => {
     if (res.ok) {
         const data = await res.json()
         dispatch(getReviews(data))
-        // return data
+        return data
     }
 };
 
@@ -25,13 +25,11 @@ const initialState = {}
 
 // reducer
 const reviewReducer = (state = initialState, action) => {
-    console.log("REDUCER ******************")
     //let newState = { ...state }
     switch (action.type) {
         case GET_REVIEWS:
-            console.log("hit the action type ****************")
             const newState = {}
-            action.reviews.forEach(review => (
+            action.reviews.reviews.forEach(review => (
                 newState[review.id] = review
             ));
             return newState;
