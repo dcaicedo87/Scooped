@@ -4,6 +4,8 @@ import { useHistory } from "react-router-dom";
 import { updateProfile } from "../../store/profile";
 import { authenticate } from "../../store/session";
 
+import "./editProfile.css";
+
 function EditProfile() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
@@ -56,41 +58,50 @@ function EditProfile() {
 
   return (
     <section className="main">
-      <div>
-        <ul>
-          {errors.map(err => (
-            <li key={err} className="error">
-              {err}
-            </li>
-          ))}
-        </ul>
-      </div>
       <form onSubmit={handleSubmit} className="container_col profile_edit_form">
-        <div className="container_row profile_edit_inputs">
-          <input type="hidden" value={userId} />
-          <div className="container_col">
-            <label>Username</label>
-            <input
-              type="text"
-              placeholder="Username..."
-              value={username}
-              onChange={updateUserName}
-            />
+        <div>
+          <div className="container_row profile_edit_inputs">
+            <input type="hidden" value={userId} />
+            <div className="container_col">
+              <label>Username</label>
+              <input
+                type="text"
+                placeholder="Username..."
+                value={username}
+                onChange={updateUserName}
+              />
+            </div>
+
+            <div className="container_col">
+              <label>Email</label>
+              <input
+                type="email"
+                placeholder="New Email..."
+                value={email}
+                onChange={updateUserEmail}
+              />
+            </div>
           </div>
 
-          <div className="container_col">
-            <label>Email</label>
-            <input
-              type="email"
-              placeholder="New Email..."
-              value={email}
-              onChange={updateUserEmail}
-            />
+          <div className="error-container">
+            <ul>
+              {errors.map(err => (
+                <li key={err} className="error">
+                  {err}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-        <div className="profile_edit_btns">
-          <button type="Submit">Accept</button>
-          <button type="button" onClick={handleCancel}>
+        <div className="container_row profile_edit_btns">
+          <button type="Submit" className="confirm-button">
+            Accept
+          </button>
+          <button
+            type="button"
+            onClick={handleCancel}
+            className="delete-button"
+          >
             Cancel
           </button>
         </div>

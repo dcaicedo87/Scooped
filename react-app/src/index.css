@@ -64,31 +64,23 @@ input:focus {
   cursor: pointer;
 }
 
-.little-button {
-  margin-right: 1em;
-  margin-top: 0.2em;
-  display: grid;
-  grid-template-areas:
-    "a"
-    "b";
-  grid-template-rows: 1fr 1fr;
-}
-
-.edit-button {
-  height: 2.2em;
-  grid-area: a;
-  background-color: #f6a7c1;
-  color: white;
-  border: none;
-  border-radius: 5px;
-}
+.confirm-button,
+.edit-button,
 .delete-button {
   height: 2.2em;
-  grid-area: b;
-  background-color: #f6a7c1;
+  grid-area: a;
   color: white;
   border: none;
   border-radius: 5px;
+}
+
+.confirm-button {
+  background-color: #8ac0de;
+}
+
+.edit-button,
+.delete-button {
+  background-color: #f6a7c1;
 }
 
 .error {
