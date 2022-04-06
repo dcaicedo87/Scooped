@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getReviewsThunk } from "../../store/review";
+import { getReviewsThunk, deleteReviewThunk } from "../../store/review";
 
 import { getAllIceCreamsThunk } from "../../store/icecream";
 import AddReviewModal from "../ModalReviewPost";
@@ -14,9 +14,9 @@ const IceCreamPage = () => {
   const dispatch = useDispatch();
   let id_of_icecream = useParams().iceCreamId;
   const iceCreamObject = useSelector(state => state.iceCream);
+  const sessionUser = useSelector(state => state.session.user);
   const currentIceCream = iceCreamObject[id_of_icecream];
 
-  console.log(currentIceCream, "111111111111111111111111");
 
   const reviewList = useSelector(state =>
     Object.values(state.review).reverse()
@@ -43,6 +43,10 @@ const IceCreamPage = () => {
   useEffect(() => {
     dispatch(getUsersThunk());
   }, [dispatch]);
+
+  // const deleteReview = id => {
+  //   dispatch(deleteReviewThunk(id));
+  // };
 
   return (
     <div className="body-iceCreamPage">
@@ -81,12 +85,13 @@ const IceCreamPage = () => {
               <p>At this moment there are no Reviews for this IceCream</p>
             ) : null}
             {reviewList[0]?.ice_cream_id === currentIceCream?.id &&
-              reviewList?.map(({ id, content, rating, user_id }) => (
-                <div>
-                  <li key={id + "O"}>{userObj[user_id]?.username}</li>
-                  <li key={id + "A"}>{content}</li>
-                  <li key={id + "B"}>{`${rating}/5`}</li>
-                </div>
+              reviewList?.map((review) => (
+                <ul>
+                  <li key={review.id + "O"}>{userObj[review.user_id]?.username}</li>
+                  <li key={review.id + "A"}>{review.content}</li>
+                  <li key={review.id + "B"}>{`${review.rating}/5`}</li>
+                  {sessionUser.id === review.user_id ? <button onClick={() => dispatch(deleteReviewThunk(review.id))}>Delete</button> : null}
+                </ul>
               ))}
           </div>
         </div>
