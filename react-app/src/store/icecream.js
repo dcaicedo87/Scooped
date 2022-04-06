@@ -99,8 +99,6 @@ const iceCreamReducer = (state = initialState, action) => {
             return newState
 
         case DELETE_ICECREAM:
-            console.log("ACTION", action)
-            console.log("NEW STATE", newState)
             delete newState[action.id]
             return newState
 
