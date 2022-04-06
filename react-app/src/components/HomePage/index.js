@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+// import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+// import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
 
 import { getAllIceCreamsThunk, deleteIceCreamThunk } from "../../store/icecream"
@@ -13,7 +14,7 @@ const HomePage = () => {
 
     const dispatch = useDispatch()
 
-    const [editButton, setEditButton] = useState(false)
+    // const [editButton, setEditButton] = useState(false)
 
     const sessionUser = useSelector(state => state.session.user);
     const iceCreamArray = useSelector(state => Object.values(state.iceCream).reverse())
@@ -51,8 +52,10 @@ const HomePage = () => {
                                 </div>
                             }
                             </div>
+
                         </div>
                     </NavLink>
+
                 ))}
             </div>
         </div>
