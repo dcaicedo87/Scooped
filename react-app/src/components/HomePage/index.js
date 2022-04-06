@@ -1,5 +1,4 @@
-// import React, { useState, useEffect } from 'react';
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -18,6 +17,8 @@ const HomePage = () => {
 
   // const [editButton, setEditButton] = useState(false)
 
+  const [iceCreamMenu, setIceCreamMenu] = useState(true)
+
   const sessionUser = useSelector(state => state.session.user);
   const iceCreamArray = useSelector(state =>
     Object.values(state.iceCream).reverse()
@@ -34,23 +35,28 @@ const HomePage = () => {
   return (
     <div className="homepage-main">
       <div className="upper-content">
-        <h1>IceCreams</h1>
+          <div>
+            <button onClick={e => setIceCreamMenu(true)}>IceCreams</button>
+            <button onClick={e => setIceCreamMenu(false)}>Shops</button>
+          </div>
         <AddIceCreamModal />
       </div>
+      {iceCreamMenu &&
       <div className="main-content">
         {iceCreamArray.length > 0 &&
           iceCreamArray.map(iceCream => (
-            <NavLink
-              to={`/iceCream/${iceCream.id}`}
-              style={{ textDecoration: "none", color: "black" }}
-            >
               <div className="iceCream-div">
                 <div className="image-container">
+                  <NavLink
+                    to={`/iceCream/${iceCream.id}`}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
                   <img
                     src={iceCream.icecream_pic_url}
                     alt="icecream pic"
                     className="iceCream-pic"
                   />
+                  </NavLink>
                 </div>
                 <div className="info-container">
                   <li>{iceCream.flavor_name}</li>
@@ -67,9 +73,12 @@ const HomePage = () => {
                   )}
                 </div>
               </div>
-            </NavLink>
           ))}
       </div>
+        }
+        {!iceCreamMenu &&
+            <h2>Shops will be here!</h2>
+        }
     </div>
   );
 };
