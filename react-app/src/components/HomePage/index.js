@@ -50,10 +50,12 @@ const HomePage = () => {
               <div className="iceCream-div">
                 <div className="image-container">
                   <NavLink
+                    key={iceCream.id}
                     to={`/iceCream/${iceCream.id}`}
                     style={{ textDecoration: "none", color: "black" }}
                   >
                   <img
+                    key={iceCream.id + ""}
                     src={iceCream.icecream_pic_url}
                     alt="icecream pic"
                     className="iceCream-pic"
@@ -61,11 +63,12 @@ const HomePage = () => {
                   </NavLink>
                 </div>
                 <div className="info-container">
-                  <li>{iceCream.flavor_name}</li>
+                  <li key={iceCream.id + "A"}>{iceCream.flavor_name}</li>
                   {iceCream.user_id === sessionUser.id && (
                     <div className="little-button">
-                      <EditIceCreamModal iceCream={iceCream} />
+                      <EditIceCreamModal iceCream={iceCream} key={iceCream.id + "B"} />
                       <button
+                        key={iceCream.id + "L"}
                         className="delete-button"
                         onClick={() => deleteIceCream(iceCream.id)}
                       >
