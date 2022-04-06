@@ -1,5 +1,6 @@
 const GET_REVIEWS = "reviews/all";
 const ADD_REVIEW = "reviews/add";
+const EDIT_REVIEW = "reviews/edit";
 
 // action creator Reviews
 const getReviews = reviews => {
@@ -13,6 +14,13 @@ const addReview = review => {
   return {
     type: ADD_REVIEW,
     review,
+  };
+};
+
+const editReview = review => {
+  return {
+    type: EDIT_REVIEW,
+    review
   };
 };
 
@@ -42,6 +50,30 @@ export const addReviewThunk = review => async dispatch => {
     return data;
   }
 };
+
+export const editReviewThunk = review => async (dispatch) => {
+  const res = await fetch(`/api/reviews/edit`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(review),
+  });
+  console.log("AFTER EDIT THUNK")
+  const updateReview = await res.json();
+  dispatch(editReview(updateReview))
+}
+
+// export const updateProfile = (profile) => async (dispatch) => {
+//   const res = await fetch(`/api/users/${profile.id}`, {
+//       method: "PUT",
+//       headers: { "Content-Type": "application/json" },
+//       body: JSON.stringify(profile),
+//   });
+//   const updatedProfile = await res.json();
+//   dispatch(update(updatedProfile))
+//   return updatedProfile;
+// }
+
+
 const initialState = {};
 
 // reducer
@@ -53,6 +85,10 @@ const reviewReducer = (state = initialState, action) => {
       return newState;
 
     case ADD_REVIEW:
+      newState[action.review.id] = action.review;
+      return newState;
+
+    case EDIT_REVIEW:
       newState[action.review.id] = action.review;
       return newState;
 

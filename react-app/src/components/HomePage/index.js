@@ -37,16 +37,16 @@ const HomePage = () => {
   return (
     <div className="homepage-main">
       <div className="upper-content">
-          <div>
-            <button onClick={e => setIceCreamMenu(true)}>IceCreams</button>
-            <button onClick={e => setIceCreamMenu(false)}>Shops</button>
-          </div>
+        <div>
+          <button onClick={e => setIceCreamMenu(true)}>IceCreams</button>
+          <button onClick={e => setIceCreamMenu(false)}>Shops</button>
+        </div>
         <AddIceCreamModal />
       </div>
       {iceCreamMenu &&
-      <div className="main-content">
-        {iceCreamArray.length > 0 &&
-          iceCreamArray.map(iceCream => (
+        <div className="main-content">
+          {iceCreamArray.length > 0 &&
+            iceCreamArray.map(iceCream => (
               <div className="iceCream-div">
                 <div className="image-container">
                   <NavLink
@@ -54,12 +54,12 @@ const HomePage = () => {
                     to={`/iceCream/${iceCream.id}`}
                     style={{ textDecoration: "none", color: "black" }}
                   >
-                  <img
-                    key={iceCream.id + ""}
-                    src={iceCream.icecream_pic_url}
-                    alt="icecream pic"
-                    className="iceCream-pic"
-                  />
+                    <img
+                      key={iceCream.id + ""}
+                      src={iceCream.icecream_pic_url}
+                      alt="icecream pic"
+                      className="iceCream-pic"
+                    />
                   </NavLink>
                 </div>
                 <div className="info-container">
@@ -78,12 +78,12 @@ const HomePage = () => {
                   )}
                 </div>
               </div>
-          ))}
-      </div>
-        }
-        {!iceCreamMenu &&
-            <h2>Shops will be here!</h2>
-        }
+            ))}
+        </div>
+      }
+      {!iceCreamMenu &&
+        <h2>Shops will be here!</h2>
+      }
     </div>
   );
 };

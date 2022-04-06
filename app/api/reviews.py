@@ -25,3 +25,15 @@ def postReview(iceCreamId):
     db.session.add(new_review)
     db.session.commit()
     return new_review.to_dict()
+
+
+@review_routes.route("/edit", methods=["PUT"])
+def editReview():
+    form = NewReviewForm()
+    review = Review.query.get(form.data['id'])
+    review.content = form.data['content']
+    review.rating = form.data['rating']
+
+    db.session.add(review)
+    db.session.commit()
+    return review.to_dict()

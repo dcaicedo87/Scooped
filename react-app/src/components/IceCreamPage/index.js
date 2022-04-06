@@ -5,14 +5,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { getReviewsThunk } from "../../store/review";
 
 import { getAllIceCreamsThunk } from "../../store/icecream";
+
 import AddReviewModal from "../ModalReviewPost";
+import EditReviewModal from "../ModalReviewEdit"
 
 import './IceCreamPage.css'
 import { getUsersThunk } from '../../store/user';
 
 
 const IceCreamPage = () => {
+
+  const sessionUser = useSelector(state => state.session.user);
+
   const dispatch = useDispatch();
+
   let iceCreamId = useParams().iceCreamId;
   const iceCreamObject = useSelector(state => state.iceCream);
   const currentIceCream = iceCreamObject[iceCreamId];
@@ -29,11 +35,9 @@ const IceCreamPage = () => {
 
   const avgRating = sum/reviewList.length
 
-  const reviewObj = useSelector(state => state.review)
 
   const userObj = useSelector(state => state.user)
 
-  const userList = Object.values(userObj)
 
   useEffect(() => {
     dispatch(getAllIceCreamsThunk());
@@ -69,12 +73,15 @@ const IceCreamPage = () => {
             <AddReviewModal />
             {reviewList.length === 0 ? <p>At this moment there are no Reviewsfor this IceCream</p> : null}
             {
-            reviewList?.map(({ id, content, rating, user_id }) => (
+            reviewList?.map((review) => (
 
               <div>
-                <li key={id + 'O' }>{userObj[user_id].username}</li>
-                <li key={id + 'A'}>{content}</li>
-                <li key={id + 'B'}>{`${rating}/5`}</li>
+                <li key={review.id + 'O' }>{userObj[review.user_id]?.username}</li>
+                <li key={review.id + 'A'}>{review.content}</li>
+                <li key={review.id + 'B'}>{`${review.rating}/5`}</li>
+                {review.user_id === sessionUser.id &&
+                  <EditReviewModal review={review}/>
+                }
               </div>
             ))}
           </div>

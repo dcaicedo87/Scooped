@@ -2,28 +2,29 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 
-import { addReviewThunk } from "../../store/review";
+import { editReviewThunk } from "../../store/review";
 import "../HomePage/homepage.css";
 
-function AddReview() {
+function EditReview({review}) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
 
   const history = useHistory();
   const ice_cream_id = useParams().iceCreamId;
 
-  const [content, setContent] = useState("");
-  const [rating, setRating] = useState(0);
+  const [content, setContent] = useState(review.content);
+  const [rating, setRating] = useState(review.rating);
 
   const handleSubmit = e => {
     e.preventDefault();
-    let review = {
+    let updatedReview = {
+      id: review.id,
       content,
       rating: +rating,
       user_id: sessionUser.id,
       ice_cream_id,
     };
-    dispatch(addReviewThunk(review));
+    dispatch(editReviewThunk(updatedReview));
     window.location.reload(false);
   };
 
@@ -53,9 +54,9 @@ function AddReview() {
           <option value="5">5</option>
         </select>
       </label>
-      <button type="submit">Add Review</button>
+      <button type="submit">Confirm</button>
     </form>
   );
 }
 
-export default AddReview;
+export default EditReview;
