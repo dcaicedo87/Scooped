@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import { useHistory } from "react-router-dom";
+import scoopedLogo from "../img/scooped_logo.png";
+import './LoginForm.css'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -9,6 +12,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -30,35 +34,56 @@ const LoginForm = () => {
     return <Redirect to='/' />;
   }
 
+  const handleSignUp = async e => {
+    e.preventDefault();
+    history.push(`/sign-up`);
+  };
+
   return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+    <>
+      <div id="bg-login"></div>
+      <div className='logo'>
+        <img src={scoopedLogo} alt=""></img>
       </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
-      </div>
-    </form>
+      <form onSubmit={onLogin}>
+        <div className="errors-field-container">
+          {errors.map((error, ind) => (
+            <div className="errors-field" key={ind}>{error}</div>
+          ))}
+        </div>
+        <div className="form-field">
+          {/* <label htmlFor='email'>Email</label> */}
+          <input
+            name='email'
+            type='text'
+            placeholder='Email'
+            value={email}
+            onChange={updateEmail}
+          />
+        </div>
+        <div className="form-field">
+          {/* <label htmlFor='password'>Password</label> */}
+          <input
+            name='password'
+            type='password'
+            placeholder='Password'
+            value={password}
+            onChange={updatePassword}
+          />
+        </div>
+        <div className="form-field">
+          <button className="button-login" type='submit'>Login</button>
+        </div>
+        <div className="form-field">
+          {/* <button className="btn" onClick={handleSignUp}>Sign Up</button> */}
+        </div>
+        <div>
+          <NavLink className="sign-up-link" to="/sign-up">
+            Don't have an account? Sign Up Here!
+          </NavLink>
+        </div>
+      </form>
+    </>
   );
 };
 
