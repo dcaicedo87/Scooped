@@ -5,7 +5,8 @@ body {
   box-sizing: border-box;
 }
 
-ul {
+ul,
+a {
   list-style-type: none;
 }
 
