@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { updateProfile } from "../../store/profile";
 import { authenticate } from "../../store/session";
+
+import "./editProfile.css";
 
 function EditProfile() {
   const dispatch = useDispatch();
@@ -17,11 +19,6 @@ function EditProfile() {
 
   const updateUserName = e => setUsername(e.target.value);
   const updateUserEmail = e => setEmail(e.target.value);
-
-  useEffect(() => {
-    console.log("useEffect username", curUserName === username);
-    console.log("useEffect email", userEmail === email);
-  }, [dispatch, username, email]);
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -60,34 +57,54 @@ function EditProfile() {
   };
 
   return (
-    <section>
-      <div>
-        <ul>
-          {errors.map(err => (
-            <li key={err}>{err}</li>
-          ))}
-        </ul>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <input type="hidden" value={userId} />
-        <label>Username</label>
-        <input
-          type="text"
-          placeholder="Username..."
-          value={username}
-          onChange={updateUserName}
-        />
-        <label>Email</label>
-        <input
-          type="email"
-          placeholder="New Email..."
-          value={email}
-          onChange={updateUserEmail}
-        />
-        <button type="Submit">Accept</button>
-        <button type="button" onClick={handleCancel}>
-          Cancel
-        </button>
+    <section className="main">
+      <form onSubmit={handleSubmit} className="container_col profile_edit_form">
+        <div>
+          <div className="container_row profile_edit_inputs">
+            <input type="hidden" value={userId} />
+            <div className="container_col">
+              <label>Username</label>
+              <input
+                type="text"
+                placeholder="Username..."
+                value={username}
+                onChange={updateUserName}
+              />
+            </div>
+
+            <div className="container_col">
+              <label>Email</label>
+              <input
+                type="email"
+                placeholder="New Email..."
+                value={email}
+                onChange={updateUserEmail}
+              />
+            </div>
+          </div>
+
+          <div className="error-container">
+            <ul>
+              {errors.map(err => (
+                <li key={err} className="error">
+                  {err}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="container_row profile_edit_btns">
+          <button type="Submit" className="confirm-button">
+            Accept
+          </button>
+          <button
+            type="button"
+            onClick={handleCancel}
+            className="delete-button"
+          >
+            Cancel
+          </button>
+        </div>
       </form>
     </section>
   );
