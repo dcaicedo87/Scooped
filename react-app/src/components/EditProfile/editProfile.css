@@ -1,0 +1,41 @@
+.profile_edit_form {
+  border: 1px solid rgba(33, 41, 63, 0.1);
+  border-radius: 10px;
+  height: 60vh;
+  justify-content: space-between;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+.profile_edit_inputs,
+.profile_edit_btns {
+  justify-content: space-between;
+}
+
+.profile_edit_form div {
+  gap: 5px;
+  width: 100%;
+}
+
+.profile_edit_form input,
+.profile_edit_form button {
+  margin: 0 10px;
+}
+
+.profile_edit_form label {
+  margin-left: 10px;
+}
+
+.profile_edit_form input {
+  height: 2.2em;
+}
+
+.profile_edit_btns {
+  border-top: 1px solid rgba(33, 41, 63, 0.1);
+  padding-top: 10px;
+}
+
+.error-container ul {
+  font-weight: bold;
+  padding-inline-start: 10px;
+}

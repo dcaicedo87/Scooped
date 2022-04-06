@@ -2,7 +2,7 @@
     display: inline-block;
     outline: none;
     cursor: pointer;
-    border-radius: 500px;
+    border-radius: 5px;
     transition-property: background-color, border-color, color, box-shadow, filter;
     border: 1px solid transparent;
     letter-spacing: 2px;
@@ -10,5 +10,5 @@
     font-weight: 700;
     text-align: center;
     color: #fff;
-    background-color: #f98AAC;
+    background-color: #F6A7C1;
 }
