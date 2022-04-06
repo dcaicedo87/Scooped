@@ -12,9 +12,11 @@ import { getUsersThunk } from "../../store/user";
 
 const IceCreamPage = () => {
   const dispatch = useDispatch();
-  let iceCreamId = useParams().iceCreamId;
+  let id_of_icecream = useParams().iceCreamId;
   const iceCreamObject = useSelector(state => state.iceCream);
-  const currentIceCream = iceCreamObject[iceCreamId];
+  const currentIceCream = iceCreamObject[id_of_icecream];
+
+  console.log(currentIceCream, "111111111111111111111111");
 
   const reviewList = useSelector(state =>
     Object.values(state.review).reverse()
@@ -35,8 +37,8 @@ const IceCreamPage = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(getReviewsThunk(iceCreamId));
-  }, [dispatch, iceCreamId]);
+    dispatch(getReviewsThunk(id_of_icecream));
+  }, [dispatch, id_of_icecream, userObj]);
 
   useEffect(() => {
     dispatch(getUsersThunk());
@@ -67,19 +69,25 @@ const IceCreamPage = () => {
             </div>
           </div>
           <div>
-            <h2>Rating: {`${avgRating}/5`}</h2>
+            <h2>
+              Rating:{" "}
+              {reviewList[0]?.ice_cream_id === currentIceCream?.id
+                ? `${avgRating}/5`
+                : `0/5`}
+            </h2>
             <h3>Reviews</h3>
             <AddReviewModal />
             {reviewList.length === 0 ? (
-              <p>At this moment there are no Reviewsfor this IceCream</p>
+              <p>At this moment there are no Reviews for this IceCream</p>
             ) : null}
-            {reviewList?.map(({ id, content, rating, user_id }) => (
-              <div>
-                <li key={id + "O"}>{userObj[user_id].username}</li>
-                <li key={id + "A"}>{content}</li>
-                <li key={id + "B"}>{`${rating}/5`}</li>
-              </div>
-            ))}
+            {reviewList[0]?.ice_cream_id === currentIceCream?.id &&
+              reviewList?.map(({ id, content, rating, user_id }) => (
+                <div>
+                  <li key={id + "O"}>{userObj[user_id]?.username}</li>
+                  <li key={id + "A"}>{content}</li>
+                  <li key={id + "B"}>{`${rating}/5`}</li>
+                </div>
+              ))}
           </div>
         </div>
       )}
