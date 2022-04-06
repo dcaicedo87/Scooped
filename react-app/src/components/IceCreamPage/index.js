@@ -5,14 +5,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { getReviewsThunk } from "../../store/review";
 
 import { getAllIceCreamsThunk } from "../../store/icecream";
+
 import AddReviewModal from "../ModalReviewPost";
+import EditReviewModal from "../ModalReviewEdit"
 
 import "./IceCreamPage.css";
 import { getUsersThunk } from "../../store/user";
 
 const IceCreamPage = () => {
+
+  const sessionUser = useSelector(state => state.session.user);
+
   const dispatch = useDispatch();
+
   let id_of_icecream = useParams().iceCreamId;
+
   const iceCreamObject = useSelector(state => state.iceCream);
   const currentIceCream = iceCreamObject[id_of_icecream];
 
@@ -28,9 +35,11 @@ const IceCreamPage = () => {
     sum += reviewList[i].rating;
   }
 
+
   const avgRating = sum / reviewList.length;
 
   const userObj = useSelector(state => state.user);
+
 
   useEffect(() => {
     dispatch(getAllIceCreamsThunk());
@@ -77,17 +86,19 @@ const IceCreamPage = () => {
             </h2>
             <h3>Reviews</h3>
             <AddReviewModal />
-            {reviewList.length === 0 ? (
-              <p>At this moment there are no Reviews for this IceCream</p>
-            ) : null}
-            {reviewList[0]?.ice_cream_id === currentIceCream?.id &&
-              reviewList?.map(({ id, content, rating, user_id }) => (
-                <div>
-                  <li key={id + "O"}>{userObj[user_id]?.username}</li>
-                  <li key={id + "A"}>{content}</li>
-                  <li key={id + "B"}>{`${rating}/5`}</li>
-                </div>
-              ))}
+            {reviewList.length === 0 ? <p>At this moment there are no Reviewsfor this IceCream</p> : null}
+            {
+            reviewList?.map((review) => (
+
+              <div>
+                <li key={review.id + 'O' }>{userObj[review.user_id]?.username}</li>
+                <li key={review.id + 'A'}>{review.content}</li>
+                <li key={review.id + 'B'}>{`${review.rating}/5`}</li>
+                {review.user_id === sessionUser.id &&
+                  <EditReviewModal review={review}/>
+                }
+              </div>
+            ))}
           </div>
         </div>
       )}
