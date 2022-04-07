@@ -42,7 +42,7 @@ const HomePage = () => {
         <div className='homepage-menu-buttons'>
           <button onClick={e => setIceCreamMenu(true)}>
             <img src={iceCreamPic} alt='iceCream picture' className='homepage-menu-image'/>
-            <p className='homepage-menu-text'>IceCreams</p>
+            <p className='homepage-menu-text'>IceCream</p>
           </button>
           <button onClick={e => setIceCreamMenu(false)}>
             <img src={iceCreamPic} alt='shop picture' className='homepage-menu-image'/>
