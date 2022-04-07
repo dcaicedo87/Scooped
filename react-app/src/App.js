@@ -12,6 +12,7 @@ import User from "./components/User";
 import { authenticate } from "./store/session";
 import EditProfile from "./components/EditProfile";
 import IceCreamPage from './components/IceCreamPage';
+import ShopPage from './components/ShopPage';
 
 
 function App() {
@@ -54,6 +55,9 @@ function App() {
           </ProtectedRoute>
           <ProtectedRoute path='/iceCream/:iceCreamId' exact={true} >
             <IceCreamPage />
+          </ProtectedRoute>
+          <ProtectedRoute path='/shop/:shopId' exact={true} >
+            <ShopPage />
           </ProtectedRoute>
         </Switch>
       )}
