@@ -1,8 +1,6 @@
-
-import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import { useDispatch, useSelector } from "react-redux"
-
+import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   getAllIceCreamsThunk,
@@ -14,14 +12,14 @@ import EditIceCreamModal from "../ModalEdit";
 
 import "./homepage.css";
 
-import iceCreamPic from '../../html/images/iceCream.png'
+import iceCreamPic from "../../html/images/iceCream.png";
 
 const HomePage = () => {
   const dispatch = useDispatch();
 
   // const [editButton, setEditButton] = useState(false)
 
-  const [iceCreamMenu, setIceCreamMenu] = useState(true)
+  const [iceCreamMenu, setIceCreamMenu] = useState(true);
 
   const sessionUser = useSelector(state => state.session.user);
   const iceCreamArray = useSelector(state =>
@@ -39,21 +37,29 @@ const HomePage = () => {
   return (
     <div className="homepage-main">
       <div className="upper-content">
-        <div className='homepage-menu-buttons'>
+        <div className="homepage-menu-buttons">
           <button onClick={e => setIceCreamMenu(true)}>
-            <img src={iceCreamPic} alt='iceCream picture' className='homepage-menu-image'/>
-            <p className='homepage-menu-text'>IceCream</p>
+            <img
+              src={iceCreamPic}
+              alt="iceCream btn"
+              className="homepage-menu-image"
+            />
+            <p className="homepage-menu-text">IceCream</p>
           </button>
           <button onClick={e => setIceCreamMenu(false)}>
-            <img src={iceCreamPic} alt='shop picture' className='homepage-menu-image'/>
-            <p className='homepage-menu-text'>Shops</p>
+            <img
+              src={iceCreamPic}
+              alt="shop btn"
+              className="homepage-menu-image"
+            />
+            <p className="homepage-menu-text">Shops</p>
           </button>
         </div>
         <AddIceCreamModal />
       </div>
-      {iceCreamMenu &&
+      {iceCreamMenu && (
         <div>
-          <p className='homepage-menu-title'>IceCreams</p>
+          <p className="homepage-menu-title">IceCreams</p>
           <div className="main-content">
             {iceCreamArray.length > 0 &&
               iceCreamArray.map(iceCream => (
@@ -76,7 +82,10 @@ const HomePage = () => {
                     <li key={iceCream.id + "A"}>{iceCream.flavor_name}</li>
                     {iceCream.user_id === sessionUser.id && (
                       <div className="little-button">
-                        <EditIceCreamModal iceCream={iceCream} key={iceCream.id + "B"} />
+                        <EditIceCreamModal
+                          iceCream={iceCream}
+                          key={iceCream.id + "B"}
+                        />
                         <button
                           key={iceCream.id + "L"}
                           className="delete-button"
@@ -91,10 +100,8 @@ const HomePage = () => {
               ))}
           </div>
         </div>
-      }
-      {!iceCreamMenu &&
-        <h2>Shops will be here!</h2>
-      }
+      )}
+      {!iceCreamMenu && <h2>Shops will be here!</h2>}
     </div>
   );
 };
