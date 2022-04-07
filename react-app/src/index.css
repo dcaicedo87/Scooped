@@ -6,7 +6,9 @@ body {
 }
 
 ul,
+li,
 a {
+  list-style: none;
   text-decoration: none;
 }
 
