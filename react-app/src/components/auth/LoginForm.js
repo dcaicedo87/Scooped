@@ -34,6 +34,14 @@ const LoginForm = () => {
     return <Redirect to="/" />;
   }
 
+  const handleSubmitDemo = async (e) => {
+    e.preventDefault();
+    const demoEmail = "demo@aa.io"
+    const demoPassword = "password"
+    await dispatch(login(demoEmail, demoPassword)
+    )
+  };
+
   // const handleSignUp = async e => {
   //   e.preventDefault();
   //   history.push(`/sign-up`);
@@ -77,6 +85,11 @@ const LoginForm = () => {
           <button className="button-login" type="submit">
             Login
           </button>
+        <div>
+          <button className="demo-login-btn button-login" onClick={handleSubmitDemo}>
+            DEMO USER
+          </button>
+        </div>
         </div>
         <div className="form-field">
           {/* <button className="btn" onClick={handleSignUp}>Sign Up</button> */}
