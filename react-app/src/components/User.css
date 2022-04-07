@@ -3,7 +3,58 @@
 }
 
 .profile_header {
-  border: 1px solid rgba(33, 41, 63, 0.1);
+  border: 1px solid rgb(223, 223, 223);
   border-radius: 10px;
   padding: 10px 20px;
+}
+
+.icecream-img-profile {
+  height: 6em;
+  width: 6em;
+  border-radius: 100%;
+  border: 1px solid rgb(170, 170, 170);
+  margin: 1em 2em 1em 0;
+}
+
+.prof_grid {
+  display: grid;
+  grid-template-areas:
+    "a b"
+    "c d";
+  grid-template-columns: 40em 15em;
+  grid-template-rows: 1fr 1.5fr;
+}
+
+.prof_h2,
+.prof_h3 {
+  text-align: start;
+}
+
+.prof_grid .prof_h3 {
+  grid-area: "a";
+  margin-bottom: 0;
+}
+
+.prof_grid > p {
+  grid-area: "b";
+  margin-bottom: 0;
+}
+
+.review_card {
+  align-items: center;
+  border-bottom: 1px solid rgb(223, 223, 223);
+}
+
+/* .prof_icecream_header {
+  justify-content: space-between;
+} */
+
+.prof_review_content {
+  width: 100%;
+  grid-area: "c d";
+}
+
+.prof_review_content > p {
+  margin-top: 0;
+  text-align: justify;
 }
