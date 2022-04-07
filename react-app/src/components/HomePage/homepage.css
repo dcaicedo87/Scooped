@@ -8,7 +8,7 @@
     justify-content: space-between;
     align-items: center;
     margin-top: 2em;
-    margin-bottom: 2em;
+    margin-bottom: 0.5em;
 }
 
 .main-content {
@@ -17,6 +17,40 @@
     align-items: center;
     justify-content: space-between;
     list-style: none;
+}
+
+.homepage-menu-buttons > button {
+    background-color: transparent;
+    border-radius: 1em;
+    margin-right: 2em;
+    border: 1px solid rgb(223, 223, 223);
+    width: 11em;
+    height: 5.5em;
+}
+
+.homepage-menu-buttons > button:hover {
+    cursor: pointer;
+    background-color: #8AC0DE33;
+    border: 1px solid #8AC0DE88;
+}
+
+.homepage-menu-image {
+    height: 3.5em;
+    width: auto;
+}
+
+.homepage-menu-text {
+    margin-top: 0;
+    color: rgb(134, 134, 134);
+    font-weight: 800;
+    font-size: small;
+}
+
+.homepage-menu-title {
+    font-size: x-large;
+    text-align: left;
+    color: rgb(134, 134, 134);
+    margin-top: 0.3em;
 }
 
 .iceCream-div {
@@ -97,6 +131,11 @@
     border: none;
     border-radius: 5px;
 }
+
+.edit-button:hover {
+    cursor: pointer;
+}
+
 .delete-button {
     height: 2.2em;
     grid-area: b;
@@ -104,4 +143,8 @@
     color: white;
     border: none;
     border-radius: 5px;
+}
+
+.delete-button:hover {
+    cursor: pointer;
 }
