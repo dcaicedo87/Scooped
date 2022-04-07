@@ -1,154 +1,151 @@
 .homepage-main {
-    margin-left: 7em;
-    margin-right: 7em;
+  margin-left: 7em;
+  margin-right: 7em;
 }
 
-.upper-content{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 2em;
-    margin-bottom: 0.5em;
+.upper-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
 }
 
 .main-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
 }
 
 .homepage-menu-buttons > button {
-    background-color: transparent;
-    border-radius: 1em;
-    margin-right: 2em;
-    border: 1px solid rgb(223, 223, 223);
-    width: 11em;
-    height: 5.5em;
+  background-color: transparent;
+  border-radius: 1em;
+  margin-right: 2em;
+  border: 1px solid rgb(223, 223, 223);
+  width: 11em;
+  height: 5.5em;
 }
 
 .homepage-menu-buttons > button:hover {
-    cursor: pointer;
-    background-color: #8AC0DE11;
-    border: 1px solid #8AC0DE77;
+  cursor: pointer;
+  background-color: #8ac0de11;
+  border: 1px solid #8ac0de77;
 }
 
 .homepage-menu-image {
-    height: 3.5em;
-    width: auto;
+  height: 3em;
+  margin-top: 0.4em;
+  width: auto;
 }
 
 .homepage-menu-text {
-    margin-top: 0;
-    color: rgb(134, 134, 134);
-    font-weight: 800;
-    font-size: small;
+  margin-top: 0;
+  color: rgb(134, 134, 134);
+  font-weight: 800;
+  font-size: small;
 }
 
 .homepage-menu-title {
-    font-size: x-large;
-    text-align: left;
-    color: rgb(134, 134, 134);
-    margin-top: 0.3em;
+  font-size: x-large;
+  text-align: left;
+  color: rgb(134, 134, 134);
+  margin-top: 0.3em;
 }
 
 .iceCream-div {
-    height: 15em;
-    width: 20em;
-    border: 1px solid rgb(223, 223, 223);
-    border-radius: 10px;
-    margin-bottom: 2em;
+  height: 15em;
+  width: 20em;
+  border: 1px solid rgb(223, 223, 223);
+  border-radius: 10px;
+  margin-bottom: 2em;
 }
 
 .iceCream-div:hover {
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    background-color: #f1f1f1;
-    border: 1px solid rgb(202, 202, 202);
-
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid rgb(202, 202, 202);
 }
 
 .image-container {
-    height: 9em;
-    width: 20em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-
+  height: 9em;
+  width: 20em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .iceCream-pic {
-    flex-shrink: 1;
-    min-width: 100%;
-    min-height: 100%
+  flex-shrink: 1;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 .info-container {
-    padding-top: 0.6em;
-    height: 5.4em;
-    padding-left: 0.6em;
-    padding-right: 0.6em;
-    display: grid;
-    grid-template-areas:
-    "a b";
-    grid-template-columns: 2fr 1.2fr;
-    font-weight:600;
-    color: rgb(59, 59, 59);
-
+  padding-top: 0.6em;
+  height: 5.4em;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+  display: grid;
+  grid-template-areas: "a b";
+  grid-template-columns: 2fr 1.2fr;
+  font-weight: 600;
+  color: rgb(59, 59, 59);
 }
 
 .big-button {
-    background-color: #8AC0DE;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    height: 2.5em;
-    width: 9em;
-    font-size: medium;
-    font-weight: 800;
+  background-color: #8ac0de;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  height: 2.5em;
+  width: 9em;
+  font-size: medium;
+  font-weight: 800;
 }
 
 .big-button:hover {
-    box-shadow: 1px 1px 1px 1px #F6A7C177;
-    cursor: pointer;
+  box-shadow: 1px 1px 1px 1px #f6a7c177;
+  cursor: pointer;
 }
 
 .little-button {
-    margin-right: 1em;
-    margin-top: 0.2em;
-    display: grid;
-    grid-template-areas:
+  margin-right: 1em;
+  margin-top: 0.2em;
+  display: grid;
+  grid-template-areas:
     "a"
     "b";
-    grid-template-rows: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
 .edit-button {
-    height: 2.2em;
-    grid-area: a;
-    background-color: #F6A7C1;
-    color: white;
-    border: none;
-    border-radius: 5px;
+  height: 2.2em;
+  grid-area: a;
+  background-color: #f6a7c1;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
 .edit-button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .delete-button {
-    height: 2.2em;
-    grid-area: b;
-    background-color: #F6A7C1;
-    color: white;
-    border: none;
-    border-radius: 5px;
+  height: 2.2em;
+  grid-area: b;
+  background-color: #f6a7c1;
+  color: white;
+  border: none;
+  border-radius: 5px;
 }
 
 .delete-button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
