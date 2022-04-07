@@ -13,6 +13,7 @@ import EditIceCreamModal from "../ModalEdit";
 import "./homepage.css";
 
 import iceCreamPic from "../../html/images/iceCream.png";
+import shopPic from "../../html/images/shop.png";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -47,11 +48,7 @@ const HomePage = () => {
             <p className="homepage-menu-text">IceCream</p>
           </button>
           <button onClick={e => setIceCreamMenu(false)}>
-            <img
-              src={iceCreamPic}
-              alt="shop btn"
-              className="homepage-menu-image"
-            />
+            <img src={shopPic} alt="shop btn" className="homepage-menu-image" />
             <p className="homepage-menu-text">Shops</p>
           </button>
         </div>
