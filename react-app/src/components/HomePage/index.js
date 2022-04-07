@@ -122,7 +122,7 @@ const HomePage = () => {
                     >
                       <img
                         key={shop.id + ""}
-                        src={iceCreamPic}
+                        src={shop.shop_pic_url}
                         alt="shop pic"
                         className="iceCream-pic"
                       />

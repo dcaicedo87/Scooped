@@ -6,7 +6,7 @@ def seed_icecreams():
         flavor_name="Funky Monkey",
         category="Dairy",
         icecream_pic_url="https://images.heb.com/is/image/HEBGrocery/000403001",
-        description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, voluptatum. Rem modi quo quidem fuga illum earum vitae, dolorum adipisci inventore, vel laborum mollitia eaque cupiditate numquam explicabo atque molestias eveniet placeat magni quisquam error quaerat quis incidunt beatae? Vero possimus corporis iste, dolores, aut quaerat sapiente praesentium molestiae tempora earum sed optio dicta harum tenetur. Vero asperiores tenetur eum error suscipit architecto vitae enim amet placeat, pariatur consectetur dolorem quam cupiditate hic debitis aspernatur corrupti ullam similique perspiciatis. Tempore amet repudiandae et quaerat accusantium repellat, laboriosam illo commodi doloribus error inventore soluta obcaecati impedit, dolores quas, adipisci nisi blanditiis.",
+        description="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, voluptatum. Rem modi quo quidem fuga illum earum vitae, dolorum adipisci inventore, vel laborum mollitia eaque.",
         user_id=1,
     )
 
@@ -14,7 +14,7 @@ def seed_icecreams():
         flavor_name="Passion Fruit",
         category="Vegan",
         icecream_pic_url="https://www.onegreenplanet.org/ezoimgfmt/149366112.v2.pressablecdn.com/wp-content/uploads/2018/02/screen-shot-2018-02-22-at-10-14-34-am.jpg?ezimgfmt=ng%3Awebp%2Fngcb2%2Frs%3Adevice%2Frscb2-1",
-        description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero modi fuga beatae culpa similique magni distinctio, accusamus natus quos esse unde reprehenderit obcaecati cupiditate molestias autem ex dolor impedit veritatis? Ipsam magni autem quasi ducimus consequuntur saepe vitae eveniet, ratione modi corrupti numquam quod quae, beatae iusto labore molestiae officia? Quas eligendi optio itaque, eveniet ducimus laudantium ratione sapiente laborum nesciunt accusamus exercitationem nulla obcaecati hic magnam, corporis voluptatibus quae dolores perferendis blanditiis eos at.",
+        description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero modi fuga beatae culpa similique magni distinctio, accusamus natus quos esse unde reprehenderit obcaecati cupiditate.",
         user_id=2,
     )
 
@@ -22,7 +22,7 @@ def seed_icecreams():
         flavor_name="Fragola",
         category="Gelato",
         icecream_pic_url="https://images.heb.com/is/image/HEBGrocery/000403001",
-        description="Vero modi fuga beatae culpa similique magni distinctio, accusamus natus quos esse unde reprehenderit obcaecati cupiditate molestias autem ex dolor impedit veritatis? Lorem ipsum dolor sit, amet consectetur adipisicing elit.  Ipsam magni autem quasi ducimus consequuntur saepe vitae eveniet, ratione modi corrupti numquam quod quae, beatae iusto labore molestiae officia? Quas eligendi optio itaque, eveniet ducimus laudantium ratione sapiente laborum nesciunt accusamus exercitationem nulla obcaecati hic magnam, corporis voluptatibus quae dolores perferendis blanditiis eos at.",
+        description="Vero modi fuga beatae culpa similique magni distinctio, accusamus natus quos esse unde reprehenderit obcaecati cupiditate molestias autem ex dolor impedit veritatis? Lorem ipsum dolor.",
         user_id=3,
     )
 
@@ -30,7 +30,7 @@ def seed_icecreams():
         flavor_name="Banana Dream",
         category="Dairy",
         icecream_pic_url="https://simpleveganblog.com/wp-content/uploads/2021/07/banana-ice-cream-2.jpg",
-        description="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi accusamus rerum molestias aliquid, laboriosam, explicabo magni repellat facere sequi blanditiis unde similique tenetur ab esse minus quam ratione veritatis quas earum nisi excepturi? Dolorem sapiente similique aliquid nisi voluptatibus, quas recusandae tenetur obcaecati, veritatis quo doloribus, blanditiis debitis natus! Ut?",
+        description="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi accusamus rerum molestias aliquid, laboriosam, explicabo magni repellat facere sequi blanditiis unde similique tenetur.",
         user_id=1,
     )
 
@@ -118,7 +118,7 @@ def seed_icecreams():
         flavor_name="Kinda Baked",
         category="Dairy",
         icecream_pic_url="https://images.squarespace-cdn.com/content/v1/60874d1bdb18651f658460e2/1624988026674-8NK7A60I7VPUE1QA6LYZ/CC_0421_TONED_HR_053.jpg?format=750w",
-        description="We start with half vanilla and half chocolate oat milk ice creams, then add generous heaps of house made chocolate chip cookie dough and chunks of fudge brownies. It's the best of both worlds, all in one scoop.",
+        description="We start with half vanilla and half chocolate oat milk ice creams, then add generous heaps of house made chocolate chip cookie dough and chunks of fudge brownies.",
         user_id=5,
     )
 
@@ -134,7 +134,7 @@ def seed_icecreams():
         flavor_name="Rare Cheese Cake Ice Cream",
         category="Dairy",
         icecream_pic_url="https://image.entabe.jp/upload/images/sasa%281%29.jpg",
-        description="It tastes exactly what the name says - each mouthful tastes like a little piece a cheesecake in your mouth, with a slight hint of lemon and sweet honey. Then you can taste the biscuit base with more lemon taste.",
+        description="It tastes exactly what the name says - each mouthful tastes like a little piece a cheesecake in your mouth, with a slight hint of lemon and sweet honey.",
         user_id=7,
     )
 
@@ -150,7 +150,7 @@ def seed_icecreams():
         flavor_name="Peppermint Bark Gelato",
         category="Gelato",
         icecream_pic_url="https://food.fnr.sndimg.com/content/dam/images/food/plus/fullset/2020/07/27/0/FNP_Vallery_No-Churn-Peppermint-Bark-Ice-Cream-6_s4x3.jpg.rend.hgtvcom.616.462.suffix/1595882478738.jpeg",
-        description="We took white chocolate peppermint gelato and mixed in semi-sweet chocolatey flakes to create our Peppermint Bark Gelato, the perfect treat that tastes like winter in a pint. This flavor is only available for a few months out of the year so be sure to grab a pint while you can!",
+        description="We took white chocolate peppermint gelato and mixed in semi-sweet chocolatey flakes to create our Peppermint Bark Gelato, the perfect treat that tastes like winter in a pint.",
         user_id=9,
     )
 
