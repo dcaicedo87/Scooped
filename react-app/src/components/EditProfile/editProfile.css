@@ -5,6 +5,7 @@
   justify-content: space-between;
   padding: 10px 0;
   margin-top: 20px;
+  width: fit-content;
 }
 
 .profile_edit_inputs,
@@ -28,6 +29,7 @@
 
 .profile_edit_form input {
   height: 2.2em;
+  width: fit-content;
 }
 
 .profile_edit_btns {
