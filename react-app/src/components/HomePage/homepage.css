@@ -94,6 +94,8 @@
     grid-template-areas:
     "a b";
     grid-template-columns: 2fr 1.2fr;
+    font-weight:600;
+    color: rgb(59, 59, 59);
 
 }
 
