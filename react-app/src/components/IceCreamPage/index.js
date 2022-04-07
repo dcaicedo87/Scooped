@@ -90,21 +90,31 @@ const IceCreamPage = () => {
             ) : null}
             {reviewList[0]?.ice_cream_id === currentIceCream?.id &&
               reviewList?.map(review => (
-                <ul>
-                  <li key={review.id + "O"}>
-                    {userObj[review.user_id]?.username}
-                  </li>
-                  <li key={review.id + "A"}>{review.content}</li>
-                  <li key={review.id + "B"}>{`${review.rating}/5`}</li>
-                  {review.user_id === sessionUser.id && (
-                    <>
-                      <EditReviewModal review={review} />
-                      <button onClick={() => deleteReview(review.id)}>
-                        Delete
-                      </button>
-                    </>
-                  )}
-                </ul>
+                <>
+                  <hr></hr>
+                  <ul style={{ textDecoration: "none" }}>
+                    <li
+                      key={review.id + "O"}
+                      style={{ fontWeight: "bold", marginBottom: "5px" }}
+                    >
+                      {userObj[review.user_id]?.username}'s Review
+                    </li>
+                    <li key={review.id + "A"} style={{ marginBottom: "8px" }}>
+                      {review.content}
+                    </li>
+                    <li key={review.id + "B"} style={{ marginBottom: "10px" }}>
+                      Rating: {`${review.rating}/5`}
+                    </li>
+                    {review.user_id === sessionUser.id && (
+                      <>
+                        <EditReviewModal review={review} />
+                        <button onClick={() => deleteReview(review.id)}>
+                          Delete
+                        </button>
+                      </>
+                    )}
+                  </ul>
+                </>
               ))}
           </div>
         </div>
