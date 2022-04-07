@@ -9,7 +9,7 @@ class Review(db.Model):
     content = db.Column(db.String(500), nullable=False)
     rating = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    ice_cream_id = db.Column(db.Integer, db.ForeignKey("icecreams.id"), nullable=False)
+    ice_cream_id = db.Column(db.Integer, db.ForeignKey("icecreams.id", ondelete="CASCADE"), nullable=False)
 
     # many(reviews) to one(user)
     user = db.relationship("User", back_populates="reviews")
