@@ -14,6 +14,8 @@ import EditIceCreamModal from "../ModalEdit";
 
 import "./homepage.css";
 
+import iceCreamPic from '../../html/images/iceCream.png'
+
 const HomePage = () => {
   const dispatch = useDispatch();
 
@@ -37,48 +39,57 @@ const HomePage = () => {
   return (
     <div className="homepage-main">
       <div className="upper-content">
-        <div>
-          <button onClick={e => setIceCreamMenu(true)}>IceCreams</button>
-          <button onClick={e => setIceCreamMenu(false)}>Shops</button>
+        <div className='homepage-menu-buttons'>
+          <button onClick={e => setIceCreamMenu(true)}>
+            <img src={iceCreamPic} alt='iceCream picture' className='homepage-menu-image'/>
+            <p className='homepage-menu-text'>IceCream</p>
+          </button>
+          <button onClick={e => setIceCreamMenu(false)}>
+            <img src={iceCreamPic} alt='shop picture' className='homepage-menu-image'/>
+            <p className='homepage-menu-text'>Shops</p>
+          </button>
         </div>
         <AddIceCreamModal />
       </div>
       {iceCreamMenu &&
-        <div className="main-content">
-          {iceCreamArray.length > 0 &&
-            iceCreamArray.map(iceCream => (
-              <div className="iceCream-div">
-                <div className="image-container">
-                  <NavLink
-                    key={iceCream.id}
-                    to={`/iceCream/${iceCream.id}`}
-                    style={{ textDecoration: "none", color: "black" }}
-                  >
-                    <img
-                      key={iceCream.id + ""}
-                      src={iceCream.icecream_pic_url}
-                      alt="icecream pic"
-                      className="iceCream-pic"
-                    />
-                  </NavLink>
+        <div>
+          <p className='homepage-menu-title'>IceCreams</p>
+          <div className="main-content">
+            {iceCreamArray.length > 0 &&
+              iceCreamArray.map(iceCream => (
+                <div className="iceCream-div">
+                  <div className="image-container">
+                    <NavLink
+                      key={iceCream.id}
+                      to={`/iceCream/${iceCream.id}`}
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
+                      <img
+                        key={iceCream.id + ""}
+                        src={iceCream.icecream_pic_url}
+                        alt="icecream pic"
+                        className="iceCream-pic"
+                      />
+                    </NavLink>
+                  </div>
+                  <div className="info-container">
+                    <li key={iceCream.id + "A"}>{iceCream.flavor_name}</li>
+                    {iceCream.user_id === sessionUser.id && (
+                      <div className="little-button">
+                        <EditIceCreamModal iceCream={iceCream} key={iceCream.id + "B"} />
+                        <button
+                          key={iceCream.id + "L"}
+                          className="delete-button"
+                          onClick={() => deleteIceCream(iceCream.id)}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <div className="info-container">
-                  <li key={iceCream.id + "A"}>{iceCream.flavor_name}</li>
-                  {iceCream.user_id === sessionUser.id && (
-                    <div className="little-button">
-                      <EditIceCreamModal iceCream={iceCream} key={iceCream.id + "B"} />
-                      <button
-                        key={iceCream.id + "L"}
-                        className="delete-button"
-                        onClick={() => deleteIceCream(iceCream.id)}
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
+              ))}
+          </div>
         </div>
       }
       {!iceCreamMenu &&
