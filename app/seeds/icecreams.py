@@ -2,7 +2,7 @@ from app.models import db, IceCream
 
 
 def seed_icecreams():
-    funky_monkey = IceCream(
+    icecream1 = IceCream(
         flavor_name="Funky Monkey",
         category="Dairy",
         icecream_pic_url="https://images.heb.com/is/image/HEBGrocery/000403001",
@@ -10,7 +10,7 @@ def seed_icecreams():
         user_id=1,
     )
 
-    passion_fruit = IceCream(
+    icecream2 = IceCream(
         flavor_name="Passion Fruit",
         category="Vegan",
         icecream_pic_url="https://www.onegreenplanet.org/ezoimgfmt/149366112.v2.pressablecdn.com/wp-content/uploads/2018/02/screen-shot-2018-02-22-at-10-14-34-am.jpg?ezimgfmt=ng%3Awebp%2Fngcb2%2Frs%3Adevice%2Frscb2-1",
@@ -18,7 +18,7 @@ def seed_icecreams():
         user_id=2,
     )
 
-    fragola = IceCream(
+    icecream3 = IceCream(
         flavor_name="Fragola",
         category="Gelato",
         icecream_pic_url="https://images.heb.com/is/image/HEBGrocery/000403001",
@@ -26,7 +26,7 @@ def seed_icecreams():
         user_id=3,
     )
 
-    banana_dream = IceCream(
+    icecream4 = IceCream(
         flavor_name="Banana Dream",
         category="Dairy",
         icecream_pic_url="https://simpleveganblog.com/wp-content/uploads/2021/07/banana-ice-cream-2.jpg",
@@ -162,12 +162,13 @@ def seed_icecreams():
         user_id=10,
     )
 
-    db.session.add(funky_monkey)
-    db.session.add(passion_fruit)
-    db.session.add(fragola)
-    db.session.add(banana_dream)
+
     db.session.add_all(
         [
+            icecream1,
+            icecream2,
+            icecream3,
+            icecream4,
             icecream5,
             icecream6,
             icecream7,
