@@ -19,9 +19,9 @@ const NavBar = ({ loaded }) => {
 
   return (
     <div className="navbar-container">
-      <div className="navbar-img-container">
+      <div className="navbar-img-container" style={{ top: "15px" }}>
         <Link to="/">
-          <img src={scoopedLogo} alt="" width="80px"></img>
+          <img src={scoopedLogo} alt="logo" width="120px"></img>
         </Link>
       </div>
       <nav>

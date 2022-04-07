@@ -1,0 +1,9 @@
+.main {
+  margin-top: 20px;
+}
+
+.profile_header {
+  border: 1px solid rgba(33, 41, 63, 0.1);
+  border-radius: 10px;
+  padding: 10px 20px;
+}
