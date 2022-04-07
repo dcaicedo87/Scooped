@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link, NavLink, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getUsersReviewsThunk } from "../store/review";
+import { getUsersReviewsThunk, deleteReviewThunk } from "../store/review";
 import { getAllIceCreamsThunk } from "../store/icecream";
 import "./User.css";
+import "../components/auth/LogoutButton.css"
 
 function User() {
   const [user, setUser] = useState({});
@@ -36,6 +37,10 @@ function User() {
   if (!user) {
     return null;
   }
+
+  const deleteReview = id => {
+    dispatch(deleteReviewThunk(id));
+  };
 
   let sum = 0;
   reviewList.forEach(review => {
@@ -78,10 +83,13 @@ function User() {
               <h3 className="prof_h3">
                 {icecreamObj[review?.ice_cream_id]?.flavor_name}
               </h3>
-              <p>Rating: {review.rating}/5</p>
               {/* </div> */}
+              <div>
+                <p>Rating: {review.rating}/5</p>
+              </div>
               <div className="prof_review_content">
                 <p>{review.content}</p>
+                <button className="delete-review-btn" onClick={() => deleteReview(review.id)}>Delete</button>
               </div>
             </div>
           </div>

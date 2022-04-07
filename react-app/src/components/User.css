@@ -18,11 +18,13 @@
 
 .prof_grid {
   display: grid;
-  grid-template-areas:
-    "a b"
-    "c d";
-  grid-template-columns: 40em 15em;
-  grid-template-rows: 1fr 1.5fr;
+  /* grid-template-areas:
+    "a a"
+    "b b"
+    "c c"; */
+  /* grid-template-columns: 40em 15em; */
+  /* grid-template-columns: 80% 20%;
+  grid-template-rows: 1fr 1.5fr; */
 }
 
 .prof_h2,
@@ -35,7 +37,7 @@
   margin-bottom: 0;
 }
 
-.prof_grid > p {
+.prof_grid>p {
   grid-area: "b";
   margin-bottom: 0;
 }
@@ -54,7 +56,9 @@
   grid-area: "c d";
 }
 
-.prof_review_content > p {
+.prof_review_content>p {
   margin-top: 0;
   text-align: justify;
 }
+
+.delete-review-btn {}
