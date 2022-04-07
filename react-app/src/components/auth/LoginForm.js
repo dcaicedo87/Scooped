@@ -43,7 +43,7 @@ const LoginForm = () => {
     <>
       <div id="bg-login"></div>
       <div className="logo">
-        <img src={scoopedLogo} alt=""></img>
+        <img src={scoopedLogo} alt="logo"></img>
       </div>
       <form onSubmit={onLogin}>
         <div className="errors-field-container">
