@@ -7,6 +7,8 @@ import {
   deleteIceCreamThunk,
 } from "../../store/icecream";
 
+import { getAllShopsThunk } from '../../store/shop'
+
 import AddIceCreamModal from "../ModalAdd";
 import EditIceCreamModal from "../ModalEdit";
 
@@ -26,6 +28,9 @@ const HomePage = () => {
   const iceCreamArray = useSelector(state =>
     Object.values(state.iceCream).reverse()
   );
+  const shopArray = useSelector(state =>
+    Object.values(state.shop).reverse()
+  );
 
   const deleteIceCream = id => {
     dispatch(deleteIceCreamThunk(id));
@@ -33,6 +38,10 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(getAllIceCreamsThunk());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getAllShopsThunk());
   }, [dispatch]);
 
   return (
@@ -98,7 +107,37 @@ const HomePage = () => {
           </div>
         </div>
       )}
-      {!iceCreamMenu && <h2>Shops will be here!</h2>}
+      {!iceCreamMenu &&
+        <div>
+          <p className="homepage-menu-title">Shops</p>
+          <div className="main-content">
+            {shopArray.length > 0 &&
+              shopArray.map(shop => (
+                <div className="iceCream-div">
+                  <div className="image-container">
+                    <NavLink
+                      key={shop.id}
+                      to={`/shop/${shop.id}`}
+                      style={{ textDecoration: "none", color: "black" }}
+                    >
+                      <img
+                        key={shop.id + ""}
+                        src={iceCreamPic}
+                        alt="shop pic"
+                        className="iceCream-pic"
+                      />
+                    </NavLink>
+                  </div>
+                  <div className="info-container-shops">
+                    <li key={shop.id + "A"}>{shop.shop_name}</li>
+                    <p className="info-paragraph-shops">{shop.city}, {shop.state}</p>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+
+      }
     </div>
   );
 };

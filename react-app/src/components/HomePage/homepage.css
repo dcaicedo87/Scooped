@@ -98,6 +98,19 @@
   color: rgb(59, 59, 59);
 }
 
+.info-container-shops {
+  padding-top: 0.6em;
+  height: 5.4em;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+  font-weight: 600;
+  color: rgb(59, 59, 59);
+}
+
+.info-paragraph-shops {
+  font-size: small;
+}
+
 .big-button {
   background-color: #8ac0de;
   color: white;
