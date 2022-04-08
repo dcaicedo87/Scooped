@@ -17,7 +17,7 @@ function AddIceCreamForm() {
   const [iceCreamUrl, setIceCreamUrl] = useState("");
   const [description, setDescription] = useState("");
   const [errors, setErrors] = useState([]);
-  const [shop, setShop] = useState(shopList[0].id); // TODO: insert shop data
+  const [shop, setShop] = useState(shopList[0].id);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -78,7 +78,12 @@ function AddIceCreamForm() {
         </label>
         <label className="category-icecream">
           Shop
-          <select value={shop} onChange={e => setShop(e.target.value)} required>
+          <select
+            className="icecream-select"
+            value={shop}
+            onChange={e => setShop(e.target.value)}
+            required
+          >
             {shopList.length > 0 &&
               shopList.map(shop => (
                 <option key={shop.id} value={shop.id}>
