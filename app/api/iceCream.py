@@ -51,5 +51,4 @@ def delete_ice_cream(id):
     deleted_iceCream = IceCream.query.filter(IceCream.id == id).first()
     db.session.delete(deleted_iceCream)
     db.session.commit()
-    print(delete_ice_cream, "@@@@@@@@@@@@@@@@@@IN DELETE ROUTE")
     return {"deleted_iceCream": deleted_iceCream.to_dict()}

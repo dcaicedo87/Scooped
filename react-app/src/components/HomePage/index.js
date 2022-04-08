@@ -91,7 +91,11 @@ const HomePage = () => {
                       >
                         {iceCream.flavor_name}
                       </li>
-                      <li className="shop-name-card">{iceCream.avg_rating}</li>
+                      <li className="shop-name-card">
+                        {Number.isInteger(iceCream.avg_rating)
+                          ? `Rating: ${iceCream.avg_rating}/5`
+                          : iceCream.avg_rating}
+                      </li>
                       {shopArray.length > 0 && (
                         <li className="shop-name-card" key={iceCream.id + "Z"}>
                           {shopObj[iceCream.shop_id].shop_name}
