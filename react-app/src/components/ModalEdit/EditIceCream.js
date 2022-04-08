@@ -1,58 +1,56 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editIceCreamThunk } from "../../store/icecream";
-import { useHistory } from "react-router-dom";
 
-import { getAllShopsThunk } from "../../store/shop";
+import { useHistory } from 'react-router-dom';
 
-function EditIceCreamForm({ iceCream }) {
-  const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
 
-  const history = useHistory();
-  const shopList = Object.values(useSelector(state => state.shop));
+function EditIceCreamForm({iceCream}) {
 
-  const [name, setName] = useState(iceCream.flavor_name);
-  const [category, setCategory] = useState(iceCream.category);
-  const [iceCreamUrl, setIceCreamUrl] = useState(iceCream.icecream_pic_url);
-  const [description, setDescription] = useState(iceCream.description);
-  const [shop, setShop] = useState(shopList[0].id);
-  const [errors, setErrors] = useState([]);
+    const dispatch = useDispatch();
+    const sessionUser = useSelector(state => state.session.user);
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    let iceCreamy = {
-      id: iceCream.id,
-      flavor_name: name,
-      category,
-      icecream_pic_url: iceCreamUrl,
-      description,
-      user_id: sessionUser.id,
-      shop_id: shop,
-    };
+    const history = useHistory();
 
-    //error validation
-    setErrors([]);
 
-    const newErrors = [];
+    const [name, setName] = useState(iceCream.flavor_name);
+    const [category, setCategory] = useState(iceCream.category);
+    const [iceCreamUrl, setIceCreamUrl] = useState(iceCream.icecream_pic_url);
+    const [description, setDescription] = useState(iceCream.description);
+    const [errors, setErrors] = useState([])
 
-    if (iceCream.flavor_name.length < 4) {
-      newErrors.push("IceCream's name must be 4 characters or more");
-    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        let iceCreamy = {
+            id: iceCream.id,
+            flavor_name: name,
+            category,
+            icecream_pic_url: iceCreamUrl,
+            description,
+            user_id: sessionUser.id
+        }
 
-    if (iceCream.description.length < 4) {
-      newErrors.push("IceCream's description must be 4 characters or more");
-    }
+        //error validation
+        setErrors([])
 
-    if (newErrors.length > 0) {
-      setErrors(newErrors);
-      return;
-    }
+        const newErrors = [];
 
-    dispatch(editIceCreamThunk(iceCreamy));
-    window.location.reload(false);
-    history.push("/");
-  };
+        if (iceCreamy.flavor_name.length < 4) {
+            newErrors.push("IceCream's name must be 4 characters or more")
+        }
+
+        if (iceCreamy.description.length < 4) {
+            newErrors.push("IceCream's description must be 4 characters or more")
+        }
+
+        if (newErrors.length > 0) {
+            setErrors(newErrors);
+            return;
+        }
+
+        dispatch(editIceCreamThunk(iceCreamy))
+        window.location.reload(false)
+        history.push('/');
 
   useEffect(() => {
     dispatch(getAllShopsThunk());
