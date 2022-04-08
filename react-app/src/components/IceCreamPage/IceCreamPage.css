@@ -2,6 +2,7 @@
   background-color: #f3d1dc;
   display: flex;
   justify-content: center;
+  height: 100vh
 }
 
 .main-content-iceCreamPage {
@@ -102,7 +103,7 @@
   text-align: justify;
 }
 
-.single-review-buttons > button {
+.single-review-buttons>button {
   border: none;
   background-color: #f6a7c1;
   color: white;
@@ -110,6 +111,6 @@
   margin-right: 0.5em;
 }
 
-.single-review-buttons > button:hover {
+.single-review-buttons>button:hover {
   cursor: pointer;
 }

@@ -52,17 +52,16 @@ function EditReview({review}) {
           ))}
         </ul>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form className="icecream-form" onSubmit={handleSubmit}>
         <label>
           Review Content
-          <input
-            type="text"
+          <textarea
             value={content}
             onChange={e => setContent(e.target.value)}
             required
           />
         </label>
-        <label>
+        <label className="category-icecream">
           Rating
           <select
             value={rating}
@@ -77,7 +76,7 @@ function EditReview({review}) {
             <option value="5">5</option>
           </select>
         </label>
-        <button type="submit">Confirm</button>
+        <button className="big-button" id="icecream-review-btn" type="submit">Confirm</button>
       </form>
     </div>
   );
