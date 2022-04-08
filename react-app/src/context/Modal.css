@@ -1,24 +1,68 @@
 #modal {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  #modal-background {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-  }
+#modal-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
 
-  #modal-content {
-    position: absolute;
-    background-color:white;
-  }
+#modal-content {
+  position: absolute;
+  background-color: #fdcf76;
+  padding: 2em 7em 8em 5.8em;
+  height: 20em;
+  border-radius: 20px;
+}
+
+.category-icecream {
+  display: block;
+}
+
+.icecream-form label {
+  font-size: 1.5em;
+  /* color: rgb(134, 134, 134); */
+  color: white;
+  padding-bottom: 1em;
+}
+
+.icecream-form input,
+.icecream-form textarea {
+  margin-bottom: 1em;
+}
+
+.category-icecream select {
+  font-size: 1em;
+  margin-top: 1em;
+  margin-left: 1em;
+}
+
+#icecream-add-btn {
+  background-color: #8ac0de;
+
+}
+
+#icecream-review-btn {
+  background-color: #B16e4B;
+}
+
+.icecream-form textarea {
+  resize: none;
+  height: 10em;
+  width: 30em;
+}
+
+#modal .modal-review {
+  padding: 2em 7em 4em 4em;
+}

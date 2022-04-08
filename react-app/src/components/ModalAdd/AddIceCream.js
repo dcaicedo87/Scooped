@@ -4,6 +4,7 @@ import { addIceCreamThunk } from "../../store/icecream";
 import { useHistory } from 'react-router-dom';
 
 
+
 function AddIceCreamForm() {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
@@ -52,7 +53,7 @@ function AddIceCreamForm() {
 
 
     return (
-        <div>
+        <div className="modal-container">
             <div>
             <ul className="post-icecream-errors">
                 {errors.map((err) => (
@@ -60,7 +61,7 @@ function AddIceCreamForm() {
                  ))}
             </ul>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form className="icecream-form" onSubmit={handleSubmit}>
                 <label>
                     IceCream Name
                     <input
@@ -69,7 +70,7 @@ function AddIceCreamForm() {
                         onChange={e => setName(e.target.value)}
                         required />
                 </label>
-                <label>
+                <label className="category-icecream">
                     Category
                     <select
                         value={category}
@@ -98,7 +99,7 @@ function AddIceCreamForm() {
                         onChange={e => setDescription(e.target.value)}
                         required />
                 </label>
-                <button type="submit">Add IceCream</button>
+                <button className="big-button" id="icecream-add-btn" type="submit">Add IceCream</button>
             </form>
         </div>
     )

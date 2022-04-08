@@ -35,7 +35,7 @@ function EditIceCreamForm({iceCream}) {
 
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="icecream-form" onSubmit={handleSubmit}>
             <label>
                 IceCream Name
                 <input
@@ -44,7 +44,7 @@ function EditIceCreamForm({iceCream}) {
                     onChange={e => setName(e.target.value)}
                     required />
             </label>
-            <label>
+            <label className="category-icecream">
                 Category
                 <select
                     value={category}
@@ -73,7 +73,7 @@ function EditIceCreamForm({iceCream}) {
                     onChange={e => setDescription(e.target.value)}
                     required />
             </label>
-            <button type="submit">Submit</button>
+            <button className="big-button" id="icecream-add-btn" type="submit">Submit</button>
         </form>
     )
 }

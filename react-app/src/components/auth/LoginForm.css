@@ -16,7 +16,7 @@
   display: block;
   align-items: center;
   justify-content: center;
-  top: 0px;
+  top: 4em;
   border-radius: 20px;
   margin-left: auto;
   margin-right: auto;
@@ -76,6 +76,7 @@ form .form-field {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  flex-direction: column;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -95,7 +96,6 @@ form input {
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
   font-size: 17px;
   color: #4a4a4a;
-  text-indent: 40px;
 }
 
 form .button-login {
@@ -106,7 +106,7 @@ form .button-login {
   margin: 0 auto;
   padding: 0.9rem 2.5rem;
   text-align: center;
-  background-color: #34c3c3;
+  background-color: #8ac0de;
   color: #fff;
   border-radius: 4px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
@@ -114,5 +114,6 @@ form .button-login {
 }
 
 form .demo-login-btn {
-  background-color: #f1a66f;
+  background-color: #fdcf7688;
+  margin-top: 1em;
 }

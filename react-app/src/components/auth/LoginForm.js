@@ -87,7 +87,7 @@ const LoginForm = () => {
           </button>
         <div>
           <button className="demo-login-btn button-login" onClick={handleSubmitDemo}>
-            DEMO USER
+            DEMO
           </button>
         </div>
         </div>
