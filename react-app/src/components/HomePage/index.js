@@ -92,7 +92,7 @@ const HomePage = () => {
                         {iceCream.flavor_name}
                       </li>
                       <li className="shop-name-card">
-                        {Number.isInteger(iceCream.avg_rating)
+                        {Number.isFinite(iceCream.avg_rating)
                           ? `Rating: ${iceCream.avg_rating}/5`
                           : iceCream.avg_rating}
                       </li>
