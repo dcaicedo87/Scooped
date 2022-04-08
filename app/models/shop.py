@@ -7,6 +7,7 @@ class Shop(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     shop_name = db.Column(db.String(100), nullable=False)
+    shop_pic_url = db.Column(db.Text, nullable=False)
     state = db.Column(db.String(100), nullable=False)
     city = db.Column(db.String(100), nullable=False)
     street_name = db.Column(db.String(150), nullable=False)
@@ -21,6 +22,7 @@ class Shop(db.Model):
         return {
             "id": self.id,
             "shop_name": self.shop_name,
+            "shop_pic_url": self.shop_pic_url,
             "state": self.state,
             "city": self.city,
             "street_name": self.street_name,

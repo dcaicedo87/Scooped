@@ -9,7 +9,7 @@ class IceCream(db.Model):
     flavor_name = db.Column(db.String(100), nullable=False)
     category = db.Column(db.String(100), nullable=False)
     icecream_pic_url = db.Column(db.Text, nullable=False)
-    description = db.Column(db.Text, nullable=False)
+    description = db.Column(db.String(255), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
     # many(icecreams) to one(user)

@@ -119,8 +119,9 @@ const HomePage = () => {
                       style={{ textDecoration: "none", color: "black" }}
                     >
                       <img
-                        key={shop.id + "S"}
-                        src={iceCreamPic}
+
+                        key={shop.id + ""}
+                        src={shop.shop_pic_url}
                         alt="shop pic"
                         className="iceCream-pic"
                       />

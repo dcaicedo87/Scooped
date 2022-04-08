@@ -5,6 +5,7 @@ from app.models.icecream import IceCream
 def seed_shops():
     shop_1 = Shop(
         shop_name="Graff Dairy",
+        shop_pic_url="https://media-cdn.tripadvisor.com/media/photo-s/10/77/4b/27/photo0jpg.jpg",
         state="Colorado",
         city="Grand Junction",
         street_name="29 Rd",
@@ -15,6 +16,7 @@ def seed_shops():
 
     shop_2 = Shop(
         shop_name="Jaxson's Ice Cream Parlor & Restaurant",
+        shop_pic_url="https://img1.10bestmedia.com/Images/Photos/233141/p-Jaxson-s_55_660x440_201404241457.jpg",
         state="Florida",
         city="Dania Beach",
         street_name="S Federal Hwy",
@@ -25,6 +27,7 @@ def seed_shops():
 
     shop_3 = Shop(
         shop_name="Fentons Creamery",
+        shop_pic_url="https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Fentons_Creamery_in_Oakland.jpg/1280px-Fentons_Creamery_in_Oakland.jpg",
         state="California",
         city="Oakland",
         street_name="Piedmont Ave",
@@ -35,6 +38,7 @@ def seed_shops():
 
     shop_4 = Shop(
         shop_name="Pop's Old Fashion Ice Cream Co",
+        shop_pic_url="https://portsoyicecream.co.uk/site/wp-content/uploads/ice-cream-collection-1600x1067.jpg",
         state="Virginia",
         city="Alexandria",
         street_name="King St",
