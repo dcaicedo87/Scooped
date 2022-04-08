@@ -57,6 +57,10 @@ const IceCreamPage = () => {
     dispatch(getAllShopsThunk());
   }, [dispatch]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   const deleteReview = id => {
     dispatch(deleteReviewThunk(id));
   };
