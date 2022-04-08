@@ -57,7 +57,7 @@ function EditProfile() {
   };
 
   return (
-    <section className="main">
+    <section className="main_bg body-iceCreamPage">
       <form onSubmit={handleSubmit} className="container_col profile_edit_form">
         <div>
           <div className="container_row profile_edit_inputs">
