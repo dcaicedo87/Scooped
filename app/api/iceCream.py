@@ -39,6 +39,7 @@ def edit_ice_cream():
     iceCream.category = form.data["category"]
     iceCream.icecream_pic_url = form.data["icecream_pic_url"]
     iceCream.description = form.data["description"]
+    iceCream.shop_id = form.data["shop_id"]
 
     db.session.add(iceCream)
     db.session.commit()
