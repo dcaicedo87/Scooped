@@ -13,6 +13,7 @@ import "./IceCreamPage.css";
 import { getUsersThunk } from "../../store/user";
 import { getAllShopsThunk } from "../../store/shop";
 
+
 const IceCreamPage = () => {
   const dispatch = useDispatch();
 
@@ -40,7 +41,7 @@ const IceCreamPage = () => {
   const shopsArray = shopsArrayVals.filter(
     shop => shop.id === currentIceCream.shop_id
   );
-  console.log(shopsArray);
+  
   useEffect(() => {
     dispatch(getAllIceCreamsThunk());
   }, [dispatch]);

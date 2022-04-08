@@ -4,33 +4,33 @@ import { useDispatch, useSelector } from "react-redux";
 import { getReviewsThunk } from "../../store/review";
 
 
-const AverageRating = ({ id }) => {
+const AverageRating = ({ avg }) => {
     const dispatch = useDispatch();
 
 
-    const reviewList = useSelector(state =>
-        Object.values(state.review).reverse()
-    );
+    // const reviewList = useSelector(state =>
+    //     Object.values(state.review).reverse()
+    // );
 
-    let sum = 0;
+    // let sum = 0;
 
-    for (let i = 0; i < reviewList.length; i++) {
-        sum += reviewList[i].rating;
-    }
+    // for (let i = 0; i < reviewList.length; i++) {
+    //     sum += reviewList[i].rating;
+    // }
 
-    const avgRating = sum / reviewList.length;
+    // const avgRating = sum / reviewList.length;
 
-    useEffect(() => {
-        dispatch(getReviewsThunk(id));
-    }, [dispatch, id]);
+    // useEffect(() => {
+    //     dispatch(getReviewsThunk(id));
+    // }, [dispatch, id]);
 
 
     return (
         <>
-            {avgRating > 0 &&
-            <li>Rating: {avgRating}</li>
+            {avg > 0 &&
+            <li>Rating: {avg}</li>
             }
-            {avgRating === 0 &&
+            {avg === 0 &&
             <li>No reviews yet</li>
             }
         </>

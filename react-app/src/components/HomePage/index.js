@@ -88,7 +88,7 @@ const HomePage = () => {
                     <div>
                       <li className="ice-cream-name-card" key={iceCream.id + "A"}>{iceCream.flavor_name}</li>
                       <li className="shop-name-card">
-                        <AverageRating id={iceCream.id}/>
+                        {iceCream.avg_rating}
                       </li>
                       {shopArray.length > 0 &&
                         <li className="shop-name-card" key={iceCream.id + "Z"}>
