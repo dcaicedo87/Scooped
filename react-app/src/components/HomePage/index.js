@@ -9,6 +9,7 @@ import {
 
 import { getAllShopsThunk } from "../../store/shop";
 
+import AverageRating from "./avgRating";
 import AddIceCreamModal from "../ModalAdd";
 import EditIceCreamModal from "../ModalEdit";
 
@@ -85,9 +86,13 @@ const HomePage = () => {
                   </div>
                   <div className="info-container">
                     <div>
-                      <li key={iceCream.id + "A"}>{iceCream.flavor_name}</li>
+                      <li className="ice-cream-name-card" key={iceCream.id + "A"}>{iceCream.flavor_name}</li>
+                      <li className="shop-name-card">
+                        {iceCream.avg_rating}
+                      </li>
                       {shopArray.length > 0 &&
-                        <li className="shop-name-card" key={iceCream.id + "Z"}>{shopObj[iceCream.shop_id].shop_name}</li>
+                        <li className="shop-name-card" key={iceCream.id + "Z"}>
+                          {shopObj[iceCream.shop_id].shop_name}</li>
                       }
                     </div>
                     {iceCream.user_id === sessionUser.id && (

@@ -22,6 +22,13 @@ class IceCream(db.Model):
     # shops = db.relationship("Shop", secondary=icecream_join_shop, back_populates="icecreams")
     shop = db.relationship("Shop", back_populates="icecreams")
 
+
+    @property
+    def avg_rating(self):
+        if len(self.reviews) > 0:
+            return sum([review.rating for review in self.reviews])/len(self.reviews)
+        return "No reviews yet"
+
     def to_dict(self):
         return {
             "id": self.id,
@@ -31,4 +38,5 @@ class IceCream(db.Model):
             "description": self.description,
             "user_id": self.user_id,
             "shop_id": self.shop_id,
+            "avg_rating": self.avg_rating
         }

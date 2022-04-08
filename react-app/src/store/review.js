@@ -74,7 +74,6 @@ export const editReviewThunk = review => async dispatch => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(review),
   });
-  console.log("AFTER EDIT THUNK");
   const updateReview = await res.json();
   dispatch(editReview(updateReview));
 };

@@ -59,7 +59,7 @@ export const addIceCreamThunk = iceCream => async dispatch => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(iceCream),
   });
-  console.log(res);
+  
   const data = await res.json();
   dispatch(addIceCream(data));
 };
