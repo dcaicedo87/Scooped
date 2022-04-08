@@ -1,5 +1,5 @@
 .profile_edit_form {
-  border: 1px solid rgba(33, 41, 63, 0.1);
+  background-color: white;
   border-radius: 10px;
   height: 60vh;
   justify-content: space-between;
@@ -33,7 +33,7 @@
 }
 
 .profile_edit_btns {
-  border-top: 1px solid rgba(33, 41, 63, 0.1);
+  border-top: 1px solid #8ac0de;
   padding-top: 10px;
 }
 
