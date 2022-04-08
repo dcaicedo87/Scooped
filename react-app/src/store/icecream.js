@@ -2,6 +2,8 @@ const GET_ALL_ICECREAMS = "icecreams/all";
 const ADD_ICECREAM = "icecream/add";
 const EDIT_ICECREAM = "icecream/edit";
 const DELETE_ICECREAM = "icecream/delete";
+const GET_JOIN = "shops/join";
+
 
 const getAllIceCreams = iceCreams => {
   return {
@@ -9,6 +11,14 @@ const getAllIceCreams = iceCreams => {
     iceCreams,
   };
 };
+
+const getJoin = joints => {
+  return {
+    type: GET_JOIN,
+    joints
+  }
+}
+
 
 const addIceCream = iceCream => {
   return {
@@ -37,6 +47,15 @@ export const getAllIceCreamsThunk = () => async dispatch => {
   dispatch(getAllIceCreams(data));
   return data;
 };
+
+export const getJoinThunk = (id) => async dispatch => {
+  const res = await fetch(`/api/shops/join/${id}`);
+  const data = await res.json();
+  dispatch(getJoin(data));
+  return data;
+
+}
+
 
 export const addIceCreamThunk = iceCream => async dispatch => {
   const res = await fetch(`/api/iceCreams/add`, {
@@ -79,6 +98,13 @@ const iceCreamReducer = (state = initialState, action) => {
     case GET_ALL_ICECREAMS:
       newState = {};
       action.iceCreams.iceCreams.forEach(
+        iceCream => (newState[iceCream.id] = iceCream)
+      );
+      return newState;
+
+    case GET_JOIN:
+      newState = {};
+      action.joints.iceCreams.forEach(
         iceCream => (newState[iceCream.id] = iceCream)
       );
       return newState;

@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getAllIceCreamsThunk } from "../../store/icecream";
-import { getAllShopsThunk, getJoinThunk } from '../../store/shop'
+import { getJoinThunk } from "../../store/icecream";
+import { getAllShopsThunk } from '../../store/shop'
 
 const ShopPage = () => {
     const dispatch = useDispatch();
@@ -17,10 +17,6 @@ const ShopPage = () => {
     );
 
     const currentShop = shopObj[id];
-    console.log(currentShop, "***********************")
-    useEffect(() => {
-        dispatch(getAllIceCreamsThunk());
-    }, [dispatch]);
 
     useEffect(() => {
         dispatch(getAllShopsThunk());
