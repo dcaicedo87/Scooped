@@ -59,7 +59,7 @@ export const addIceCreamThunk = iceCream => async dispatch => {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(iceCream),
   });
-  
+
   const data = await res.json();
   dispatch(addIceCream(data));
 };
@@ -79,6 +79,7 @@ export const deleteIceCreamThunk = id => async dispatch => {
   const res = await fetch(`/api/iceCreams/delete/${id}`, {
     method: "DELETE",
   });
+
   if (res.ok) {
     const data = await res.json();
     dispatch(deleteIceCream(id));
