@@ -67,7 +67,7 @@ def seed_icecreams():
     )
 
     icecream9 = IceCream(
-        flavor_name="Bananas Foster​",
+        flavor_name="Bananas Foster",
         category="Vegan",
         icecream_pic_url="https://tmbidigitalassetsazure.blob.core.windows.net/rms3-prod/attachments/37/1200x1200/Bananas-Foster-Sundaes_EXPS_CIMZ17_42034_B07_13_4b.jpg",
         description="Banana & Cinnamon Non-Dairy Frozen Dessert with Almond Toffee Pieces & a Salted Caramel Core",
