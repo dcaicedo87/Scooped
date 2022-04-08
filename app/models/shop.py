@@ -1,5 +1,6 @@
 from .db import db
-from .icecream_join_shop import icecream_join_shop
+
+# from .icecream_join_shop import icecream_join_shop
 
 
 class Shop(db.Model):
@@ -16,7 +17,8 @@ class Shop(db.Model):
     description = db.Column(db.Text, nullable=False)
 
     # many(shops) to many(icecreams), refer to icecream_join_shop
-    icecreams = db.relationship("IceCream", secondary=icecream_join_shop, back_populates="shops")
+    # icecreams = db.relationship("IceCream", secondary=icecream_join_shop, back_populates="shops")
+    icecreams = db.relationship("IceCream", back_populates="shop")
 
     def to_dict(self):
         return {

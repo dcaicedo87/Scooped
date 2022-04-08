@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getJoinThunk } from "../../store/icecream";
+import { getAllIceCreamsThunk } from "../../store/icecream";
 import { getAllShopsThunk } from "../../store/shop";
 
 import "./ShopPage.css";
@@ -24,10 +24,11 @@ const ShopPage = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(getJoinThunk(id));
-  }, [dispatch, id]);
+    dispatch(getAllIceCreamsThunk());
+  }, [dispatch]);
 
   //iceCreamArray.filter(ice)
+  iceCreamArray.filter(iceCream => iceCream.shop_id === id);
 
   return (
     <div className="body-shopPage">

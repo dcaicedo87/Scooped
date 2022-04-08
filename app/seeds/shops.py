@@ -1,5 +1,6 @@
 from app.models import db, Shop
-from app.models.icecream import IceCream
+
+# from app.models.icecream import IceCream
 
 
 def seed_shops():
@@ -52,75 +53,65 @@ def seed_shops():
     db.session.add(shop_3)
     db.session.add(shop_4)
 
-    icecream_1 = IceCream.query.filter_by(flavor_name="Funky Monkey").first()
-    shop_1.icecreams.append(icecream_1)
+    # icecream_1 = IceCream.query.filter_by(flavor_name="Funky Monkey").first()
+    # shop_1.icecreams.append(icecream_1)
 
-    icecream_2 = IceCream.query.filter_by(flavor_name="Passion Fruit").first()
-    shop_2.icecreams.append(icecream_2)
+    # icecream_2 = IceCream.query.filter_by(flavor_name="Passion Fruit").first()
+    # shop_2.icecreams.append(icecream_2)
 
-    icecream_3 = IceCream.query.filter_by(flavor_name="Fragola").first()
-    shop_3.icecreams.append(icecream_3)
+    # icecream_3 = IceCream.query.filter_by(flavor_name="Fragola").first()
+    # shop_3.icecreams.append(icecream_3)
 
-    icecream_4 = IceCream.query.filter_by(flavor_name="Banana Dream").first()
-    shop_4.icecreams.append(icecream_4)
+    # icecream_4 = IceCream.query.filter_by(flavor_name="Banana Dream").first()
+    # shop_4.icecreams.append(icecream_4)
 
-    icecream_5 = IceCream.query.filter_by(flavor_name="Brown Sugar Blondie Ice Cream").first()
-    shop_1.icecreams.append(icecream_5)
+    # icecream_5 = IceCream.query.filter_by(flavor_name="Brown Sugar Blondie Ice Cream").first()
+    # shop_1.icecreams.append(icecream_5)
 
-    icecream_6 = IceCream.query.filter_by(flavor_name="Crema").first()
-    shop_2.icecreams.append(icecream_6)
+    # icecream_6 = IceCream.query.filter_by(flavor_name="Crema").first()
+    # shop_2.icecreams.append(icecream_6)
 
-    icecream_7 = IceCream.query.filter_by(flavor_name="Milk & Cookies").first()
-    shop_3.icecreams.append(icecream_7)
+    # icecream_7 = IceCream.query.filter_by(flavor_name="Milk & Cookies").first()
+    # shop_3.icecreams.append(icecream_7)
 
-    icecream_8 = IceCream.query.filter_by(flavor_name="Noce Di Cocco").first()
-    shop_4.icecreams.append(icecream_8)
+    # icecream_8 = IceCream.query.filter_by(flavor_name="Noce Di Cocco").first()
+    # shop_4.icecreams.append(icecream_8)
 
-    icecream_9 = IceCream.query.filter_by(flavor_name="Bananas Foster").first()
-    shop_1.icecreams.append(icecream_9)
+    # icecream_9 = IceCream.query.filter_by(flavor_name="Bananas Foster").first()
+    # shop_1.icecreams.append(icecream_9)
 
-    icecream_10 = IceCream.query.filter_by(flavor_name="Non-Dairy Mint Chocochunk").first()
-    shop_2.icecreams.append(icecream_10)
+    # icecream_10 = IceCream.query.filter_by(flavor_name="Non-Dairy Mint Chocochunk").first()
+    # shop_2.icecreams.append(icecream_10)
 
-    icecream_11 = IceCream.query.filter_by(flavor_name="P.B. & Cookies").first()
-    shop_3.icecreams.append(icecream_11)
+    # icecream_11 = IceCream.query.filter_by(flavor_name="P.B. & Cookies").first()
+    # shop_3.icecreams.append(icecream_11)
 
-    icecream_12 = IceCream.query.filter_by(flavor_name="Gelato Alla Nocciola").first()
-    shop_4.icecreams.append(icecream_12)
+    # icecream_12 = IceCream.query.filter_by(flavor_name="Gelato Alla Nocciola").first()
+    # shop_4.icecreams.append(icecream_12)
 
-    icecream_13 = IceCream.query.filter_by(flavor_name="Birthday Batter").first()
-    shop_1.icecreams.append(icecream_13)
+    # icecream_13 = IceCream.query.filter_by(flavor_name="Birthday Batter").first()
+    # shop_1.icecreams.append(icecream_13)
 
-    icecream_14 = IceCream.query.filter_by(flavor_name="The Akutaq").first()
-    shop_2.icecreams.append(icecream_14)
+    # icecream_14 = IceCream.query.filter_by(flavor_name="The Akutaq").first()
+    # shop_2.icecreams.append(icecream_14)
 
-    icecream_15 = IceCream.query.filter_by(flavor_name="Kinda Baked").first()
-    shop_3.icecreams.append(icecream_15)
+    # icecream_15 = IceCream.query.filter_by(flavor_name="Kinda Baked").first()
+    # shop_3.icecreams.append(icecream_15)
 
-    icecream_16 = IceCream.query.filter_by(flavor_name="Lychee Raspberry Daiquiri").first()
-    shop_4.icecreams.append(icecream_16)
+    # icecream_16 = IceCream.query.filter_by(flavor_name="Lychee Raspberry Daiquiri").first()
+    # shop_4.icecreams.append(icecream_16)
 
-    icecream_17 = IceCream.query.filter_by(flavor_name="Rare Cheese Cake Ice Cream").first()
-    shop_1.icecreams.append(icecream_17)
+    # icecream_17 = IceCream.query.filter_by(flavor_name="Rare Cheese Cake Ice Cream").first()
+    # shop_1.icecreams.append(icecream_17)
 
-    icecream_18 = IceCream.query.filter_by(flavor_name="Black Sesame").first()
-    shop_2.icecreams.append(icecream_18)
+    # icecream_18 = IceCream.query.filter_by(flavor_name="Black Sesame").first()
+    # shop_2.icecreams.append(icecream_18)
 
-    icecream_19 = IceCream.query.filter_by(flavor_name="Peppermint Bark Gelato").first()
-    shop_3.icecreams.append(icecream_19)
+    # icecream_19 = IceCream.query.filter_by(flavor_name="Peppermint Bark Gelato").first()
+    # shop_3.icecreams.append(icecream_19)
 
-    icecream_20 = IceCream.query.filter_by(flavor_name="Metcha Matcha").first()
-    shop_4.icecreams.append(icecream_20)
-
-
-
-
-
-
-
-
-
-
+    # icecream_20 = IceCream.query.filter_by(flavor_name="Metcha Matcha").first()
+    # shop_4.icecreams.append(icecream_20)
 
     db.session.commit()
 
