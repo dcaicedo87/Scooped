@@ -50,11 +50,10 @@
 
 #icecream-add-btn {
   background-color: #8ac0de;
-
 }
 
 #icecream-review-btn {
-  background-color: #B16e4B;
+  background-color: #b16e4b;
 }
 
 .icecream-form textarea {
@@ -64,5 +63,9 @@
 }
 
 #modal .modal-review {
-  padding: 2em 7em 10em 4em;
+  padding: 1em 8em 13em 4em;
+}
+
+select.icecream-select {
+  margin: 0;
 }
