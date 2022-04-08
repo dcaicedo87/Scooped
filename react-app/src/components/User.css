@@ -1,7 +1,14 @@
 .main_bg.body-iceCreamPage {
   background-color: #fcf0cf;
   height: 100vh;
+  padding-bottom: 3em;
 }
+
+/* @media (max-height: 651px) {
+  .main_bg.body-iceCreamPage {
+    height: 100%;
+  }
+} */
 
 .main {
   margin-top: 20px;
@@ -49,9 +56,9 @@
   margin-bottom: 0;
 }
 
-/* .review_container {
-  border-radius: 1em;
-} */
+.review_container {
+  margin-bottom: 2em;
+}
 
 .review_card {
   align-items: center;

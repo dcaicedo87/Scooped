@@ -12,7 +12,7 @@ const ShopPage = () => {
   const dispatch = useDispatch();
   const id = useParams().shopId;
 
-  const iceCreamArray = useSelector(state =>
+  const iceCreamArrayVals = useSelector(state =>
     Object.values(state.iceCream).reverse()
   );
   const shopObj = useSelector(state => state.shop);
@@ -27,8 +27,9 @@ const ShopPage = () => {
     dispatch(getAllIceCreamsThunk());
   }, [dispatch]);
 
-  //iceCreamArray.filter(ice)
-  iceCreamArray.filter(iceCream => iceCream.shop_id === id);
+  const iceCreamArray = iceCreamArrayVals.filter(
+    iceCream => iceCream.shop_id === +id
+  );
 
   return (
     <div className="body-shopPage">

@@ -11,6 +11,7 @@ import EditReviewModal from "../ModalReviewEdit";
 
 import "./IceCreamPage.css";
 import { getUsersThunk } from "../../store/user";
+import { getAllShopsThunk } from "../../store/shop";
 
 const IceCreamPage = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const IceCreamPage = () => {
 
   const iceCreamObject = useSelector(state => state.iceCream);
   const sessionUser = useSelector(state => state.session.user);
+  const shopsArrayVals = Object.values(useSelector(state => state.shop));
   const currentIceCream = iceCreamObject[id_of_icecream];
 
   const reviewList = useSelector(state =>
@@ -35,6 +37,10 @@ const IceCreamPage = () => {
 
   const userObj = useSelector(state => state.user);
 
+  const shopsArray = shopsArrayVals.filter(
+    shop => shop.id === currentIceCream.shop_id
+  );
+  console.log(shopsArray);
   useEffect(() => {
     dispatch(getAllIceCreamsThunk());
   }, [dispatch]);
@@ -45,6 +51,10 @@ const IceCreamPage = () => {
 
   useEffect(() => {
     dispatch(getUsersThunk());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getAllShopsThunk());
   }, [dispatch]);
 
   const deleteReview = id => {
@@ -66,13 +76,16 @@ const IceCreamPage = () => {
             <h2 key={currentIceCream.id + "C"} className="ice-cream-name-title">
               {currentIceCream.flavor_name}
             </h2>
+            {shopsArray.length > 0 && <h4>by {shopsArray[0].shop_name}</h4>}
+
             <h3 className="rating-with-number">
-              Rating:
+              Overall Rating:
               {reviewList[0]?.ice_cream_id === currentIceCream?.id
-                ? ` ${Number.isInteger(avgRating)
-                  ? avgRating
-                  : avgRating.toFixed(1)
-                }/5`
+                ? ` ${
+                    Number.isInteger(avgRating)
+                      ? avgRating
+                      : avgRating.toFixed(1)
+                  }/5`
                 : ` 0/5`}
             </h3>
             <div className="description-iceCreamPage">
@@ -135,7 +148,5 @@ const IceCreamPage = () => {
     </div>
   );
 };
-
-
 
 export default IceCreamPage;
