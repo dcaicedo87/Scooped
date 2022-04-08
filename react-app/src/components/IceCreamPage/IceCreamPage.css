@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   height: 100vh;
+  padding-bottom: 7em;
 }
 
 .main-content-iceCreamPage {
