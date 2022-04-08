@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import AverageRating from "./avgRating";
 
 import {
   getAllIceCreamsThunk,
@@ -85,7 +86,10 @@ const HomePage = () => {
                   </div>
                   <div className="info-container">
                     <div>
-                      <li key={iceCream.id + "A"}>{iceCream.flavor_name}</li>
+                      <li className="ice-cream-name-card" key={iceCream.id + "A"}>{iceCream.flavor_name}</li>
+                      <li className="shop-name-card">
+                        <AverageRating id={iceCream.id}/>
+                      </li>
                       {shopArray.length > 0 &&
                         <li className="shop-name-card" key={iceCream.id + "Z"}>{shopObj[iceCream.shop_id].shop_name}</li>
                       }

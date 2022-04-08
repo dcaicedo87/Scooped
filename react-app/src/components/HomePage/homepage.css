@@ -81,9 +81,7 @@
 }
 
 .iceCream-pic {
-  flex-shrink: 1;
-  min-width: 100%;
-  min-height: 100vh;
+  max-height: 25em;
 }
 
 .shop-pic {
@@ -103,11 +101,16 @@
   color: rgb(59, 59, 59);
 }
 
+.ice-cream-name-card {
+  margin-bottom: 0.4em;
+  font-size: 0.85em;
+}
+
 .shop-name-card {
-  font-size: smaller;
-  font-weight: 300;
+  font-size: 0.7em;
+  font-weight: 500;
   margin-top: 0.2em;
-  margin-left: 0.4em;
+  margin-left: 0.7em;
   color: rgb(134, 134, 134);
 
 }
