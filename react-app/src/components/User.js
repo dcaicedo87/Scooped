@@ -85,7 +85,7 @@ function User() {
               </h3>
               {/* </div> */}
               <div>
-                <p>Rating: {review.rating}/5</p>
+                <p className="icecream-rating-profile">Rating: {review.rating}/5</p>
               </div>
               <div className="prof_review_content">
                 <p>{review.content}</p>

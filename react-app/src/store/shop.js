@@ -8,13 +8,14 @@ const getAllShops = shops => {
 };
 
 
+
 export const getAllShopsThunk = () => async dispatch => {
     const res = await fetch(`/api/shops/all`);
-    console.log("INSIDE THUNK*********", res)
     const data = await res.json();
     dispatch(getAllShops(data));
     return data;
 };
+
 
 const initialState = {};
 
@@ -27,6 +28,7 @@ const shopReducer = (state = initialState, action) => {
                 shop => (newState[shop.id] = shop)
             );
             return newState;
+
         default:
             return state;
 
