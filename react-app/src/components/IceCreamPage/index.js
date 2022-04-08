@@ -69,11 +69,10 @@ const IceCreamPage = () => {
             <h3 className="rating-with-number">
               Rating:
               {reviewList[0]?.ice_cream_id === currentIceCream?.id
-                ? ` ${
-                    Number.isInteger(avgRating)
-                      ? avgRating
-                      : avgRating.toFixed(1)
-                  }/5`
+                ? ` ${Number.isInteger(avgRating)
+                  ? avgRating
+                  : avgRating.toFixed(1)
+                }/5`
                 : ` 0/5`}
             </h3>
             <div className="description-iceCreamPage">
@@ -137,9 +136,6 @@ const IceCreamPage = () => {
   );
 };
 
-// return (
-//   <>
-//   </>
-// )
+
 
 export default IceCreamPage;

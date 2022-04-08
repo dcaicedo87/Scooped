@@ -123,7 +123,7 @@ const HomePage = () => {
                         key={shop.id + ""}
                         src={shop.shop_pic_url}
                         alt="shop pic"
-                        className="iceCream-pic"
+                        className="shop-pic"
                       />
                     </NavLink>
                   </div>
