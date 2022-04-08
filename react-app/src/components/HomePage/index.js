@@ -9,7 +9,6 @@ import {
 
 import { getAllShopsThunk } from "../../store/shop";
 
-import AverageRating from "./avgRating";
 import AddIceCreamModal from "../ModalAdd";
 import EditIceCreamModal from "../ModalEdit";
 
@@ -30,7 +29,7 @@ const HomePage = () => {
     Object.values(state.iceCream).reverse()
   );
   const shopArray = useSelector(state => Object.values(state.shop).reverse());
-  const shopObj = useSelector(state => state.shop)
+  const shopObj = useSelector(state => state.shop);
 
   const deleteIceCream = id => {
     dispatch(deleteIceCreamThunk(id));
@@ -86,14 +85,18 @@ const HomePage = () => {
                   </div>
                   <div className="info-container">
                     <div>
-                      <li className="ice-cream-name-card" key={iceCream.id + "A"}>{iceCream.flavor_name}</li>
-                      <li className="shop-name-card">
-                        {iceCream.avg_rating}
+                      <li
+                        className="ice-cream-name-card"
+                        key={iceCream.id + "A"}
+                      >
+                        {iceCream.flavor_name}
                       </li>
-                      {shopArray.length > 0 &&
+                      <li className="shop-name-card">{iceCream.avg_rating}</li>
+                      {shopArray.length > 0 && (
                         <li className="shop-name-card" key={iceCream.id + "Z"}>
-                          {shopObj[iceCream.shop_id].shop_name}</li>
-                      }
+                          {shopObj[iceCream.shop_id].shop_name}
+                        </li>
+                      )}
                     </div>
                     {iceCream.user_id === sessionUser.id && (
                       <div className="little-button">
@@ -130,7 +133,6 @@ const HomePage = () => {
                       style={{ textDecoration: "none", color: "black" }}
                     >
                       <img
-
                         key={shop.id + ""}
                         src={shop.shop_pic_url}
                         alt="shop pic"
