@@ -11,7 +11,7 @@
   border: 2.5px solid rgb(223, 223, 223);
   border-radius: 10px;
   padding: 10px 20px;
-  /* background-color: #fcf0cf; */
+  background-color: white;
 }
 
 .icecream-img-profile {
@@ -49,10 +49,9 @@
   margin-bottom: 0;
 }
 
-.review_container {
-  background-color: white;
+/* .review_container {
   border-radius: 1em;
-}
+} */
 
 .review_card {
   align-items: center;
