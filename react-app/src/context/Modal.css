@@ -59,10 +59,10 @@
 
 .icecream-form textarea {
   resize: none;
-  height: 10em;
+  height: 15em;
   width: 30em;
 }
 
 #modal .modal-review {
-  padding: 2em 7em 4em 4em;
+  padding: 2em 7em 10em 4em;
 }
