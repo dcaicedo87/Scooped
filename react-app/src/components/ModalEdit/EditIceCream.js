@@ -51,6 +51,7 @@ function EditIceCreamForm({iceCream}) {
         dispatch(editIceCreamThunk(iceCreamy))
         window.location.reload(false)
         history.push('/');
+    }
 
   useEffect(() => {
     dispatch(getAllShopsThunk());
