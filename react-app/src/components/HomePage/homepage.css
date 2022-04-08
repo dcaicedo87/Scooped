@@ -103,6 +103,15 @@
   color: rgb(59, 59, 59);
 }
 
+.shop-name-card {
+  font-size: smaller;
+  font-weight: 300;
+  margin-top: 0.2em;
+  margin-left: 0.4em;
+  color: rgb(134, 134, 134);
+
+}
+
 .info-container-shops {
   padding-top: 0.6em;
   height: 5.4em;

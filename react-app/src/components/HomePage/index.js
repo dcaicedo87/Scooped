@@ -29,6 +29,7 @@ const HomePage = () => {
     Object.values(state.iceCream).reverse()
   );
   const shopArray = useSelector(state => Object.values(state.shop).reverse());
+  const shopObj = useSelector(state => state.shop)
 
   const deleteIceCream = id => {
     dispatch(deleteIceCreamThunk(id));
@@ -83,7 +84,12 @@ const HomePage = () => {
                     </NavLink>
                   </div>
                   <div className="info-container">
-                    <li key={iceCream.id + "A"}>{iceCream.flavor_name}</li>
+                    <div>
+                      <li key={iceCream.id + "A"}>{iceCream.flavor_name}</li>
+                      {shopArray.length > 0 &&
+                        <li className="shop-name-card" key={iceCream.id + "Z"}>{shopObj[iceCream.shop_id].shop_name}</li>
+                      }
+                    </div>
                     {iceCream.user_id === sessionUser.id && (
                       <div className="little-button">
                         <EditIceCreamModal
