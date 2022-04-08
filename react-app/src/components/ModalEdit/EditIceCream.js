@@ -34,11 +34,11 @@ function EditIceCreamForm({iceCream}) {
 
         const newErrors = [];
 
-        if (iceCream.flavor_name.length < 4) {
+        if (iceCreamy.flavor_name.length < 4) {
             newErrors.push("IceCream's name must be 4 characters or more")
         }
 
-        if (iceCream.description.length < 4) {
+        if (iceCreamy.description.length < 4) {
             newErrors.push("IceCream's description must be 4 characters or more")
         }
 
