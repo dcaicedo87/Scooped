@@ -37,6 +37,11 @@ function EditProfile() {
     if (updatedProfile.username.length < 4) {
       newErrors.push("Username must be 4 characters or more!");
     }
+
+    if (userId === 1 && userEmail !== updatedProfile.email) {
+      newErrors.push("Sorry, Demo user's email cannot be changed.");
+    }
+
     if (updatedProfile.email.length < 4) {
       newErrors.push("Email must be 4 characters or more!");
     }
