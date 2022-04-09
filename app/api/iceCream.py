@@ -49,6 +49,6 @@ def edit_ice_cream():
 @iceCream_routes.route("/delete/<int:id>", methods=["DELETE"])
 def delete_ice_cream(id):
     deleted_iceCream = IceCream.query.filter(IceCream.id == id).first()
-    IceCream.query.filter(IceCream.id == id).delete()
+    db.session.delete(deleted_iceCream)
     db.session.commit()
     return {"deleted_iceCream": deleted_iceCream.to_dict()}

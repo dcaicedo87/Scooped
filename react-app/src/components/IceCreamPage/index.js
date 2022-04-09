@@ -13,7 +13,6 @@ import "./IceCreamPage.css";
 import { getUsersThunk } from "../../store/user";
 import { getAllShopsThunk } from "../../store/shop";
 
-
 const IceCreamPage = () => {
   const dispatch = useDispatch();
 
@@ -39,9 +38,9 @@ const IceCreamPage = () => {
   const userObj = useSelector(state => state.user);
 
   const shopsArray = shopsArrayVals.filter(
-    shop => shop.id === currentIceCream.shop_id
+    shop => shop.id === currentIceCream?.shop_id
   );
-  
+
   useEffect(() => {
     dispatch(getAllIceCreamsThunk());
   }, [dispatch]);
@@ -59,8 +58,8 @@ const IceCreamPage = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   const deleteReview = id => {
     dispatch(deleteReviewThunk(id));

@@ -17,16 +17,15 @@ class IceCream(db.Model):
     # many(icecreams) to one(user)
     user = db.relationship("User", back_populates="icecreams")
     # one(icecream) to many(reviews)
-    reviews = db.relationship("Review", back_populates="icecream")
+    reviews = db.relationship("Review", back_populates="icecream", cascade="all, delete-orphan")
     # many(icecreams) to many(shops), refer to icecream_join_shop
     # shops = db.relationship("Shop", secondary=icecream_join_shop, back_populates="icecreams")
     shop = db.relationship("Shop", back_populates="icecreams")
 
-
     @property
     def avg_rating(self):
         if len(self.reviews) > 0:
-            return sum([review.rating for review in self.reviews])/len(self.reviews)
+            return sum([review.rating for review in self.reviews]) / len(self.reviews)
         return "No reviews yet"
 
     def to_dict(self):
@@ -38,5 +37,5 @@ class IceCream(db.Model):
             "description": self.description,
             "user_id": self.user_id,
             "shop_id": self.shop_id,
-            "avg_rating": self.avg_rating
+            "avg_rating": self.avg_rating,
         }

@@ -26,26 +26,22 @@ def postReview(iceCreamId):
     db.session.commit()
     return new_review.to_dict()
 
+
 @review_routes.route("/edit", methods=["PUT"])
 def editReview():
     form = NewReviewForm()
-    review = Review.query.get(form.data['id'])
-    review.content = form.data['content']
-    review.rating = form.data['rating']
+    review = Review.query.get(form.data["id"])
+    review.content = form.data["content"]
+    review.rating = form.data["rating"]
 
     db.session.add(review)
     db.session.commit()
     return review.to_dict()
-  
+
 
 @review_routes.route("/delete/<int:reviewId>", methods=["DELETE"])
 def delete_review(reviewId):
-    deleted_review =Review.query.filter(Review.id == reviewId).first()
-    Review.query.filter(Review.id == reviewId).delete()
+    deleted_review = Review.query.filter(Review.id == reviewId).first()
+    db.session.delete(deleted_review)
     db.session.commit()
-    return {
-        'deleted_review':deleted_review.to_dict()
-    }
-
-
-
+    return {"deleted_review": deleted_review.to_dict()}
