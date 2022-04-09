@@ -93,7 +93,7 @@ const HomePage = () => {
                       </li>
                       <li className="shop-name-card">
                         {Number.isFinite(iceCream.avg_rating)
-                          ? `Rating: ${iceCream.avg_rating}/5`
+                          ? `Rating: ${iceCream.avg_rating.toFixed(1)}/5`
                           : iceCream.avg_rating}
                       </li>
                       {shopArray.length > 0 && (
