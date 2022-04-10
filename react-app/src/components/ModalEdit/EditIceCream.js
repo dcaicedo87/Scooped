@@ -53,7 +53,7 @@ function EditIceCreamForm({ iceCream }) {
   return (
     <div className="moda-container">
       <div>
-        <ul className="post-icecream-errors">
+        <ul className="modal-errors">
           {errors.map(err => (
             <li key={err}>{err}</li>
           ))}

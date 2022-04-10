@@ -60,7 +60,7 @@ function AddIceCreamForm() {
   return (
     <div className="modal-container">
       <div>
-        <ul className="post-icecream-errors">
+        <ul className="modal-errors">
           {errors.map(err => (
             <li key={err}>{err}</li>
           ))}

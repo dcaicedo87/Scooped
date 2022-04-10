@@ -1,3 +1,67 @@
+# Scooped
+
+Scooped is a clone of [Untappd](https://untappd.com/home) where users can view a wide variety of ice creams, explore their descriptions and even submit new ice creams to be added. Create an account to be able to leave reviews on ice creams and have your own profile to keep your ice cream submissions in order.
+
+## Technologies
+
+**Frontend**
+
+- Node, HTML, REACT REDUX, CSS3,
+
+**Backend**
+
+- Python, Flask, PostgreSQL database
+
+**Others**
+
+- Docker
+- Deployed with [Heroku](https://www.heroku.com/)
+
+## Getting Started
+
+1. Clone this repository
+
+   ```bash
+   git clone https://github.com/dcaicedo87/Scooped.git
+   ```
+
+2. Install dependencies
+
+   ```bash
+   pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
+   ```
+
+3. Create a **.env** file based on the example with proper settings for your development environment
+
+4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
+
+5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+
+   ```bash
+   pipenv shell
+   ```
+
+   ```bash
+   flask db upgrade
+   ```
+
+   ```bash
+   flask seed all
+   ```
+
+   ```bash
+   flask run
+   ```
+
+6. To run the React App in development, cd into the `react-app` directory and run your react app
+
+   ```bash
+   npm start
+   ```
+
+7. Navigate to http://localhost:3000/
+
+<!--
 # Flask React Project
 
 This is the starter for the Flask React project.
@@ -5,19 +69,19 @@ This is the starter for the Flask React project.
 ## Getting started
 ### Dev Containers (M1 Users, follow this guide)
 
-1. Make sure you have the [Microsoft Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension installed. 
-2. Make sure you have [Docker](https://www.docker.com/products/docker-desktop/) installed on your computer. 
+1. Make sure you have the [Microsoft Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension installed.
+2. Make sure you have [Docker](https://www.docker.com/products/docker-desktop/) installed on your computer.
 3. Clone the repository (only this branch)
    ```bash
    git clone https://github.com/appacademy-starters/python-project-starter.git
    ```
-4. Open the repo in VS Code. 
-5. Click "Open in Container" when VS Code prompts to open container in the bottom right hand corner. 
+4. Open the repo in VS Code.
+5. Click "Open in Container" when VS Code prompts to open container in the bottom right hand corner.
 6. **Be Patient!** The initial install will take a LONG time, it's building a container that has postgres preconfigured and even installing all your project dependencies. (For both flask and react!)
 
    **Note:** This will take much less time on future starts because everything will be cached.
 
-7. Once everything is up, be sure to make a `.env` file based on `.env.example` in both the root directory and the *react-app* directory before running your app. 
+7. Once everything is up, be sure to make a `.env` file based on `.env.example` in both the root directory and the *react-app* directory before running your app.
 
 8. Get into your pipenv, migrate your database, seed your database, and run your flask app
 
@@ -99,14 +163,14 @@ This is the starter for the Flask React project.
 ## Deploy to Heroku
 
 ### Abstract
-This repo comes configured with Github Actions. When you push to your main branch, Github will automatically pull your code, package and push it to Heroku, and then release the new image and run db migrations. 
+This repo comes configured with Github Actions. When you push to your main branch, Github will automatically pull your code, package and push it to Heroku, and then release the new image and run db migrations.
 
 ### Writing your Dockerfile
 In order for the Github action to work effectively, it must have a configured docker file. In order to effectively deploy your site you need to code out the notes found in this [docker file](./Dockerfile)
 
-### Configuring Production Environment Variables 
+### Configuring Production Environment Variables
 
-1. In your Heroku app settings you should have two environment variables set. 
+1. In your Heroku app settings you should have two environment variables set.
 
    |    Key          |    Value    |
    | -------------   | ----------- |
@@ -120,7 +184,8 @@ In order for the Github action to work effectively, it must have a configured do
    | `HEROKU_API_KEY`  | Heroku Oauth Token |
    | `HEROKU_APP_NAME` | Heroku app name    |
 
-3. To get an Oauth token for Heroku, run the following command in your terminal already authenticated to the Heroku CLI and pull out the string on the Token key. 
+3. To get an Oauth token for Heroku, run the following command in your terminal already authenticated to the Heroku CLI and pull out the string on the Token key.
    ```bash
-   heroku authorizations:create 
+   heroku authorizations:create
    ```
+   ``` -->
