@@ -1,7 +1,6 @@
 .main_bg.body-iceCreamPage {
   background-color: #fcf0cf;
-  height: 100vh;
-  padding-bottom: 3em;
+  height: fit-content;
 }
 
 /* @media (max-height: 651px) {
