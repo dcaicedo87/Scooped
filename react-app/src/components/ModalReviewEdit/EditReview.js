@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { editReviewThunk } from "../../store/review";
 import "../HomePage/homepage.css";
 
-function EditReview({review}) {
+function EditReview({ review }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
 
@@ -26,7 +26,7 @@ function EditReview({review}) {
     };
 
     //error validation
-    setErrors([])
+    setErrors([]);
 
     const newErrors = [];
 
@@ -46,8 +46,8 @@ function EditReview({review}) {
   return (
     <div>
       <div>
-        <ul className="edit-review-errors">
-          {errors.map((err) => (
+        <ul className="modal-errors review-errors">
+          {errors.map(err => (
             <li key={err}>{err}</li>
           ))}
         </ul>
@@ -76,7 +76,9 @@ function EditReview({review}) {
             <option value="5">5</option>
           </select>
         </label>
-        <button className="big-button" id="icecream-review-btn" type="submit">Confirm</button>
+        <button className="big-button" id="icecream-review-btn" type="submit">
+          Confirm
+        </button>
       </form>
     </div>
   );

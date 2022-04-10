@@ -13,7 +13,7 @@ function AddReview() {
 
   const [content, setContent] = useState("");
   const [rating, setRating] = useState(0);
-  const [errors, setErrors] = useState([])
+  const [errors, setErrors] = useState([]);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -25,7 +25,7 @@ function AddReview() {
     };
 
     //error validation
-    setErrors([])
+    setErrors([]);
 
     const newErrors = [];
 
@@ -45,10 +45,10 @@ function AddReview() {
   return (
     <div>
       <div>
-        <ul className="post-review-errors">
-            {errors.map((err) => (
-              <li key={err}>{err}</li>
-            ))}
+        <ul className="modal-errors review-errors">
+          {errors.map(err => (
+            <li key={err}>{err}</li>
+          ))}
         </ul>
       </div>
       <form className="icecream-form" onSubmit={handleSubmit}>
@@ -75,7 +75,9 @@ function AddReview() {
             <option value="5">5</option>
           </select>
         </label>
-        <button className="big-button" id="icecream-review-btn" type="submit">Add Review</button>
+        <button className="big-button" id="icecream-review-btn" type="submit">
+          Add Review
+        </button>
       </form>
     </div>
   );
