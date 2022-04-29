@@ -1,6 +1,7 @@
 # Scooped
 
 Scooped is a clone of [Untappd](https://untappd.com/home) where users can view a wide variety of ice creams, explore their descriptions and even submit new ice creams to be added. Create an account to be able to leave reviews on ice creams and have your own profile to keep your ice cream submissions in order.
+![](/react-app/public/add_comment.gif)
 
 ## Technologies
 
