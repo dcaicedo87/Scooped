@@ -9,6 +9,7 @@
   height: 100vh;
   background-size: cover;
   filter: blur(5px) brightness(50%);
+  z-index: 0;
 }
 
 .logo img {
