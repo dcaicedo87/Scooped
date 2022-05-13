@@ -1,6 +1,6 @@
 # Scooped
 
-Scooped is a clone of [Untappd](https://untappd.com/home) where users can view a wide variety of ice creams, explore their descriptions and even submit new ice creams to be added. Create an account to be able to leave reviews on ice creams and have your own profile to keep your ice cream submissions in order.
+[Scooped](https://aa-scooped.herokuapp.com/login) is a clone of [Untappd](https://untappd.com/home) where users can view a wide variety of ice creams, explore their descriptions and even submit new ice creams to be added. Create an account to be able to leave reviews on ice creams and have your own profile to keep your ice cream submissions in order.
 ![](/react-app/public/add_comment.gif)
 
 ## Technologies
@@ -17,6 +17,24 @@ Scooped is a clone of [Untappd](https://untappd.com/home) where users can view a
 
 - Docker
 - Deployed with [Heroku](https://www.heroku.com/)
+
+## Features
+### IceCream
+![IceCream Create](https://user-images.githubusercontent.com/13339377/168336338-cfecc24d-8fa6-49e6-97f8-2760fc495d65.JPG)
+Users can begin creating IceCream pages with their reviews for others to see once signed in. They can add an IceCream by clicking on the "Add iceCream" button to bring up a modal where they will fill in all the required information. Once created, the user can view their page on the home screen.
+
+### Reviews
+![IceCream Review](https://user-images.githubusercontent.com/13339377/168336339-129693fc-4861-4e8f-a54f-3491251ecfee.JPG)
+Once an IceCream has been created successfully, other users can access that particular IceCream by clicking on that IceCream from the main page. When the user is inside the IceCream page of their choice, they can add a review by clicking the "Add review" button where a modal will pop up requesting a review message as well as a rating. What makes this page unique is that all the reviews from all the users will be accounted for giving the IceCream an average rating.
+
+### Review Feed
+![Review Feed](https://user-images.githubusercontent.com/13339377/168336336-c48b3d12-f0ce-439a-bfee-4fd0de99d72f.JPG)
+Users can access their Review Feed by clicking on the "My Profile" button located on the navigation bar once signed in. The Review Feed will display all of the users reviews as well as their associated comments/ratings. Clicking on the comment's picture will redirect the user to the IceCream page to view all other reviews to that particular IceCream. Users can also delete their reviews from the feed by clicking on the "Delete" button should they no longer wish to have them.
+
+### Profile
+![Profile Edit](https://user-images.githubusercontent.com/13339377/168336335-a429d053-91f0-49d8-a5bb-a67d444e9c6c.JPG)
+Users can access their profile information by clicking on the "My Profile" button on the navigation bar once signed in.
+At the top of the page will display the users information with their associated Username and Email. Users can change their information by clicking on the "Edit" button located below the user's email which will bring up a page to modify their data.
 
 ## Getting Started
 
