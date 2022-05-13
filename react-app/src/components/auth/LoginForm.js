@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, Redirect } from "react-router-dom";
 import { login } from "../../store/session";
+import Footer from "../Footer";
 // import { useHistory } from "react-router-dom";
 import scoopedLogo from "../img/scooped_logo.png";
 import "./LoginForm.css";
@@ -34,12 +35,11 @@ const LoginForm = () => {
     return <Redirect to="/" />;
   }
 
-  const handleSubmitDemo = async (e) => {
+  const handleSubmitDemo = async e => {
     e.preventDefault();
-    const demoEmail = "demo@aa.io"
-    const demoPassword = "password"
-    await dispatch(login(demoEmail, demoPassword)
-    )
+    const demoEmail = "demo@aa.io";
+    const demoPassword = "password";
+    await dispatch(login(demoEmail, demoPassword));
   };
 
   // const handleSignUp = async e => {
@@ -85,11 +85,14 @@ const LoginForm = () => {
           <button className="button-login" type="submit">
             Login
           </button>
-        <div>
-          <button className="demo-login-btn button-login" onClick={handleSubmitDemo}>
-            DEMO
-          </button>
-        </div>
+          <div>
+            <button
+              className="demo-login-btn button-login"
+              onClick={handleSubmitDemo}
+            >
+              DEMO
+            </button>
+          </div>
         </div>
         <div className="form-field">
           {/* <button className="btn" onClick={handleSignUp}>Sign Up</button> */}
@@ -100,6 +103,7 @@ const LoginForm = () => {
           </NavLink>
         </div>
       </form>
+      <Footer />
     </>
   );
 };
